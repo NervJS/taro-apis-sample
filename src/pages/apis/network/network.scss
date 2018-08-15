@@ -15,16 +15,9 @@ body {
     text-align: center;
   }
   &_main {
-    &_sub {
-      margin: 0 40px;
-      padding: 20px 40px;
-      background-color: #fff;
-      font-size: 32px;
-      border-radius: 5px;
-    }
     &_wp {
       margin: 0 40px;
-      padding: 0px 40px 30px;
+      padding: 20px 40px 30px;
       background-color: #fff;
       border-radius: 10px;
     }
@@ -33,12 +26,35 @@ body {
       font-size: 32px;
     }
     &_item {
-      margin-top: 30px;
+      margin-bottom: 20px;
       &_btn {
         font-size: 28px;
         height: 80px;
         line-height: 80px;
       }
+    }
+  }
+}
+
+.request {
+  &_text {
+    margin-top: 20px;
+    font-size: 32px;
+  }
+  &_wp {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &_item {
+    margin-top: 30px;
+    width: 50%;
+    display: flex;
+    font-size: 28px;
+    flex-direction: column;
+    justify-content: space-between;
+    image {
+      width: 40px;
+      height: 40px;
     }
   }
 }

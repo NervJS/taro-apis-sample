@@ -1,12 +1,15 @@
 import Taro, { Component } from '@tarojs/taro'
+import { View } from '@tarojs/components'
 import Index from './pages/index'
 
 import './app.scss'
 
+
 class App extends Component {
   config = {
     pages: [
-      'pages/index/index'
+      'pages/index/index',
+      'pages/apis/network/network'
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -26,7 +29,9 @@ class App extends Component {
 
   render () {
     return (
-      <Index />
+      <View>
+        <Index />
+      </View>
     )
   }
 }
