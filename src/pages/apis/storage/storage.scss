@@ -1,0 +1,38 @@
+.storage {
+  .container {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .detail {
+      display: flex;
+      align-items: center;
+      background: #ffffff;
+      &_text {
+        width: 100px;
+        font-size: 30px;
+        text-align: right;
+      }
+      &_input {
+        flex: 1;
+        font-size: 30px;
+        padding-left: 20px;
+      }
+    }
+  }
+  .oprate_btn {
+    height: 80px;
+    width: 400px;
+    margin: 20px auto 0;
+    text-align: center;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 30px;
+    background-color: #0faeff;
+    border: none;
+  }
+  .btn_hover {
+    border: none;
+  }
+}

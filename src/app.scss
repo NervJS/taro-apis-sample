@@ -1,0 +1,20 @@
+.common_tips {
+  padding: 30px 40px;
+  font-size: 28px;
+  color: #888888;
+  text-align: center;
+  &_text {
+    margin-bottom: 20px;
+    font-size: 32px;
+  }
+}
+.common_header {
+  padding-top: 50px;
+  display: flex;
+  justify-content: center;
+  .common_title {
+    padding: 30px 40px;
+    color: #bbbbbb;
+    border-bottom: 2px solid #bbbbbb;
+  }
+}

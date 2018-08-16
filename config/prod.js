@@ -5,9 +5,5 @@ module.exports = {
   defineConstants: {
   },
   weapp: {},
-  h5: {
-    devServer: {
-      port: 10086
-    }
-  }
+  h5: {}
 }

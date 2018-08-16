@@ -5,6 +5,10 @@ export const menusData = {
     {
       name: '网络',
       url: 'pages/apis/network/network'
+    },
+    {
+      name: '数据缓存',
+      url: 'pages/apis/storage/storage'
     }
   ] 
 }
