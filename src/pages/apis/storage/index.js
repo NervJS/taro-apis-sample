@@ -1,7 +1,7 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text, Button, Input } from '@tarojs/components'
 
-import './storage.scss'
+import './index.scss'
 
 export default class Storage extends Component {
 

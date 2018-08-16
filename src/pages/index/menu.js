@@ -8,7 +8,11 @@ export const menusData = {
     },
     {
       name: '数据缓存',
-      url: 'pages/apis/storage/storage'
+      url: 'pages/apis/storage/index'
+    },
+    {
+      name: '位置',
+      url: 'pages/apis/location/index'
     }
   ] 
 }
