@@ -10,7 +10,8 @@ class App extends Component {
     pages: [
       'pages/index/index',
       'pages/apis/network/network',
-      'pages/apis/storage/storage',
+      'pages/apis/storage/index',
+      'pages/apis/location/index',
     ],
     window: {
       backgroundTextStyle: 'light',

@@ -15,27 +15,35 @@ export default class Storage extends Component {
     storageValue: '',
     btnList: [
       {
-        name: '同步设置Storage',
+        name: '同步设置setStorageSync',
         type: 'setStorageSync'
       },
       {
-        name: '同步读取Storage',
+        name: '同步读取getStorageSync',
         type: 'getStorageSync'
       },
       {
-        name: '同步清除Storage',
+        name: '同步移除指定 key ',
+        type: 'removeStorageSync'
+      },
+      {
+        name: '同步清除clearStorageSync',
         type: 'clearStorageSync'
       },
       {
-        name: '异步设置Storage',
+        name: '异步设置setStorage',
         type: 'setStorage'
       },
       {
-        name: '异步读取Storage',
+        name: '异步读取getStorage',
         type: 'getStorage'
       },
       {
-        name: '异步清除Storage',
+        name: '异步移除指定 key ',
+        type: 'removeStorage'
+      },
+      {
+        name: '异步清除clearStorage',
         type: 'clearStorage'
       }
     ]
@@ -68,6 +76,7 @@ export default class Storage extends Component {
     let title = ''
     if (!storageValue || !storageKey) {
       Taro.showToast({
+        icon: 'none',
         title: '请输入key和value'
       })
       return
@@ -80,6 +89,10 @@ export default class Storage extends Component {
       case 'getStorageSync': 
         const value = Taro[type](storageKey)
         title = `key: ${storageKey} value: ${value}`
+        break
+      case 'removeStorageSync':
+        Taro[type](storageKey)
+        title = `同步移除 ${storageKey} 成功`
         break
       case 'clearStorageSync': 
         Taro[type]()
@@ -102,6 +115,11 @@ export default class Storage extends Component {
         } catch (err) {
           console.log(err)
         } 
+        break
+      case 'removeStorageSync':
+        const res = Taro[type]({key: storageKey})
+        console.log(res)
+        title = `异步移除 ${storageKey} 成功`
         break
       case 'clearStorage':
         await Taro[type]() 
