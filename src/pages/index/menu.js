@@ -13,6 +13,10 @@ export const menusData = {
     {
       name: '位置',
       url: 'pages/apis/location/index'
+    },
+    {
+      name: '界面',
+      url: 'pages/apis/interface/index'
     }
   ] 
 }

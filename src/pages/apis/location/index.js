@@ -1,5 +1,5 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Text, Button, Input } from '@tarojs/components'
+import { View, Text, Button, Input, Canvas } from '@tarojs/components'
 
 import './index.scss'
 
@@ -16,7 +16,8 @@ export default class Location extends Component {
 
   componentWillMount () { }
 
-  componentDidMount () { }
+  componentDidMount () { 
+  }
 
   componentWillUnmount () { }
 
@@ -68,6 +69,12 @@ export default class Location extends Component {
           hoverClass='btn_hover' 
           onClick={this.handleLocation.bind(this, 'chooseLocation')}>
           选择位置
+        </Button>
+        <Button
+          className='oprate_btn'
+          hoverClass='btn_hover' 
+          onClick={this.handleLocation.bind(this, 'openLocation')}>
+          查看位置
         </Button>
       </View>
     )

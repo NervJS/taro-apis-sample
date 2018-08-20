@@ -4,7 +4,6 @@ import Index from './pages/index'
 import '@tarojs/async-await'
 import './app.scss'
 
-
 class App extends Component {
   config = {
     pages: [
@@ -12,6 +11,7 @@ class App extends Component {
       'pages/apis/network/network',
       'pages/apis/storage/index',
       'pages/apis/location/index',
+      'pages/apis/interface/index',
     ],
     window: {
       backgroundTextStyle: 'light',
