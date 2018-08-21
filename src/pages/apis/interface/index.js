@@ -1,8 +1,8 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Text, Button, Input, Canvas } from '@tarojs/components'
+import { View, Text, Button } from '@tarojs/components'
 
 import './index.scss'
-import { menusData } from './data'
+import menusData from './data'
 
 export default class Location extends Component {
 
@@ -27,7 +27,7 @@ export default class Location extends Component {
 
   componentDidHide () { }
 
-  handleMenuItem (methods, type, env) {
+  handleMenuItem (methods, type, env, obj={}) {
     if (env.indexOf(Taro.getEnv()) === -1) {
       Taro.showToast({
         icon: 'none',
@@ -35,15 +35,8 @@ export default class Location extends Component {
       })
       return
     }
-    if (methods == 'showActionSheet') {
-      Taro.showActionSheet({
-        itemList: ['a', 'b', 'c']
-      })
-    } else if (type === 'show') {
-      Taro[methods]({
-        title: '成功',
-        icon: 'success'      
-      })
+    if (type === 'obj') {
+      Taro[methods](obj)
     } else {
       Taro[methods]()
     }
@@ -83,7 +76,8 @@ export default class Location extends Component {
                       return (
                         <Button 
                           className='menu_item' 
-                          onClick={this.handleMenuItem.bind(this, item.methods, item.type, item.env)}>
+                          onClick={this.handleMenuItem.bind(this, item.methods, item.type, item.env, item.obj)}
+                        >
                           {item.name}
                         </Button>
                       )
