@@ -4,20 +4,24 @@ const menusData = {
   list: [
     {
       name: '网络',
-      url: '../apis/network/index'
+      url: '/pages/apis/network/network'
     },
     {
       name: '数据缓存',
-      url: '../apis/storage/index'
+      url: '/pages/apis/storage/index'
     },
     {
       name: '位置',
-      url: '../apis/location/index'
+      url: '/pages/apis/location/index'
+    },
+    {
+      name: '设备',
+      url: '/pages/apis/system/index'
     },
     {
       name: '界面',
-      url: '../apis/interface/index'
+      url: '/pages/apis/interface/index'
     }
-  ] 
+  ]
 }
 export default menusData
