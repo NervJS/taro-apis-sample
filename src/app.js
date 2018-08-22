@@ -8,7 +8,7 @@ class App extends Component {
   config = {
     pages: [
       'pages/index/index',
-      'pages/apis/network/network',
+      'pages/apis/network/index',
       'pages/apis/storage/index',
       'pages/apis/location/index',
       'pages/apis/interface/index',

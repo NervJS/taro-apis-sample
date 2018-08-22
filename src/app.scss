@@ -8,13 +8,56 @@
     font-size: 32px;
   }
 }
+
 .common_header {
-  padding-top: 50px;
+  padding-top: 20px;
   display: flex;
   justify-content: center;
   .common_title {
     padding: 30px 40px;
     color: #bbbbbb;
     border-bottom: 2px solid #bbbbbb;
+  }
+}
+
+.common_menu {
+  margin-bottom: 20px;
+  &_title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    &_name {
+      font-size: 32px;
+      color: #666666;
+    }
+    &_icon {
+      width: 26px;
+      height: 26px;
+      border-right: 2px solid #676767;
+      border-bottom: 2px solid #676767;
+      transform: rotate(-45deg);
+      display: block;
+      transition: all 0.3s;
+    } 
+  }
+  &.active {
+    .common_menu_title_icon {
+      transform: rotate(45deg);
+    }
+  }
+}
+
+.common_show_box {
+  margin: 40px;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  &_title {
+    padding-top: 10px;
+    font-size: 36px;
+    color: #ca3a3a;
+    text-align: center;
   }
 }

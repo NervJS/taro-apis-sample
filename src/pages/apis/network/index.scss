@@ -15,24 +15,8 @@ body {
     text-align: center;
   }
   &_main {
-    &_wp {
-      margin: 0 40px;
-      padding: 20px 40px 30px;
-      background-color: #fff;
-      border-radius: 10px;
-    }
-    &_text {
-      margin-bottom: 20px;
-      font-size: 32px;
-    }
-    &_item {
-      margin-bottom: 20px;
-      &_btn {
-        font-size: 28px;
-        height: 80px;
-        line-height: 80px;
-      }
-    }
+    padding: 0 20px;
+    margin-top: 40px;
   }
 }
 
@@ -57,4 +41,20 @@ body {
       height: 40px;
     }
   }
+}
+
+
+.oprate_btn {
+  height: 80px;
+  width: 400px;
+  margin: 20px auto 0;
+  text-align: center;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 30px;
+  background-color: #0faeff;
+  border: none;
+}
+.btn_hover {
+  border: none;
 }

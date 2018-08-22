@@ -26,7 +26,6 @@ export default class Location extends Component {
   componentDidHide () { }
 
   handleLocation (type) {
-    console.log(Taro.getEnv())
     if (Taro.getEnv() === 'WEB') {
       Taro.showToast({
         icon: 'none',
