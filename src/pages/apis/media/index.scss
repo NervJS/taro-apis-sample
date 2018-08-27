@@ -1,0 +1,24 @@
+page {
+  background-color: #f8f8f8;
+}
+
+body {
+  background-color: #f8f8f8;
+}
+
+.index {
+  background-color: #f8f8f8;
+  &_top {
+    padding: 30px 40px;
+    font-size: 28px;
+    color: #888888;
+    text-align: center;
+  }
+  &_main {
+    padding: 0 20px;
+    margin-top: 40px;
+    &_btn {
+      margin-top: 20px;
+    }
+  } 
+}

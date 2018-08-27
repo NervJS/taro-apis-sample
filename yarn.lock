@@ -151,7 +151,6 @@
     react "16.3.0"
     weui "^1.1.2"
 
-"@tarojs/plugin-babel@1.0.0-beta.17":
   version "1.0.0-beta.17"
   resolved "https://registry.yarnpkg.com/@tarojs/plugin-babel/-/plugin-babel-1.0.0-beta.17.tgz#566e2503d456a00d6fef91fa73fa65050500e36b"
   dependencies:
@@ -187,25 +186,7 @@
   dependencies:
     "@tarojs/taro" "1.0.0-beta.17"
     jsonp-retry "^1.0.3"
-    mobile-detect "^1.4.2"
-    whatwg-fetch "^2.0.4"
-
-"@tarojs/taro-weapp@1.0.0-beta.17":
-  version "1.0.0-beta.17"
-  resolved "https://registry.yarnpkg.com/@tarojs/taro-weapp/-/taro-weapp-1.0.0-beta.17.tgz#b54c074f7ae83f80e43127b4fe77c59f86085832"
-  dependencies:
-    "@tarojs/taro" "1.0.0-beta.17"
-    "@tarojs/utils" "1.0.0-beta.17"
-    lodash "^4.17.10"
-    prop-types "^15.6.1"
-
-"@tarojs/taro@1.0.0-beta.17":
-  version "1.0.0-beta.17"
-  resolved "https://registry.yarnpkg.com/@tarojs/taro/-/taro-1.0.0-beta.17.tgz#c297aca02568adbced3fc85c620ba7b125f05fc2"
-
-"@tarojs/transformer-wx@1.0.0-beta.17":
-  version "1.0.0-beta.17"
-  resolved "https://registry.yarnpkg.com/@tarojs/transformer-wx/-/transformer-wx-1.0.0-beta.17.tgz#fc7764bc303a536b700c7b35b7b37c7ce6da07fe"
+>>>>>>> 29e03e2afecc9672930d973d1edb941e560b409c
   dependencies:
     "@babel/code-frame" "^7.0.0-beta.44"
     babel-core "^6.26.3"
@@ -2007,7 +1988,7 @@ css-what@2.1:
 
 css@^2.0.0, css@^2.2.3:
   version "2.2.3"
-  resolved "https://registry.yarnpkg.com/css/-/css-2.2.3.tgz#f861f4ba61e79bedc962aa548e5780fd95cbc6be"
+  resolved "http://registry.npm.taobao.org/css/download/css-2.2.3.tgz#f861f4ba61e79bedc962aa548e5780fd95cbc6be"
   dependencies:
     inherits "^2.0.1"
     source-map "^0.1.38"
