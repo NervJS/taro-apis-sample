@@ -9,14 +9,14 @@ const menusData = [
           title: '成功',
           icon: 'success'      
         },
-        env: ['WEB', 'weapp', 'rn'],
+        env: ['WEB', 'WEAPP', 'RN'],
         methods: 'showToast'
       },
       {
         name: '隐藏消息提示框',
         type: '',
         obj: {},
-        env: ['WEB', 'weapp', 'rn'],
+        env: ['WEB', 'WEAPP', 'RN'],
         methods: 'hideToast'
       },
       {
@@ -25,14 +25,14 @@ const menusData = [
         obj: {
           title: '加载中...',    
         },
-        env: ['WEB', 'weapp', 'rn'],
+        env: ['WEB', 'WEAPP', 'RN'],
         methods: 'showLoading'
       },
       {
         name: '隐藏 loading 提示框',
         type: '',
         obj: {},
-        env: ['WEB', 'weapp', 'rn'],
+        env: ['WEB', 'WEAPP', 'RN'],
         methods: 'hideLoading'
       },
       {
@@ -41,7 +41,7 @@ const menusData = [
         obj: {
           title: '​显示模态弹窗',    
         },
-        env: ['WEB', 'weapp', 'rn'],
+        env: ['WEB', 'WEAPP', 'RN'],
         methods: 'showModal'
       },
       {
@@ -50,7 +50,7 @@ const menusData = [
         obj: {
           itemList: ['a', 'b', 'c']   
         },
-        env: ['WEB', 'weapp', 'rn'],
+        env: ['WEB', 'WEAPP', 'RN'],
         methods: 'showActionSheet'
       }
     ]
@@ -64,21 +64,21 @@ const menusData = [
         obj: {
           title: '当前页面'  
         },
-        env: ['weapp'],
+        env: ['WEAPP'],
         methods: 'setTabBarBadge'
       },
       {
         name: '在当前页面显示导航条加载动画',
         type: '',
         obj: {},
-        env: ['weapp'],
+        env: ['WEAPP'],
         methods: 'showNavigationBarLoading'
       },
       {
         name: '隐藏导航条加载动画',
         type: '',
         obj: {},
-        env: ['weapp'],
+        env: ['WEAPP'],
         methods: 'hideNavigationBarLoading'
       },
       {
@@ -92,7 +92,7 @@ const menusData = [
               timingFunc: 'easeIn'
           }
         },
-        env: ['weapp'],
+        env: ['WEAPP'],
         methods: 'hideNavigationBarLoading'
       }
     ]
@@ -107,7 +107,7 @@ const menusData = [
           index: 0,
           text: '1'
         },
-        env: ['weapp'],
+        env: ['WEAPP'],
         methods: 'setTabBarBadge'
       },
       {
@@ -116,7 +116,7 @@ const menusData = [
         obj: {
           index: 0,
         },
-        env: ['weapp'],
+        env: ['WEAPP'],
         methods: 'removeTabBarBadge'
       },
       {
@@ -125,7 +125,7 @@ const menusData = [
         obj: {
           index: 0,
         },
-        env: ['weapp'],
+        env: ['WEAPP'],
         methods: 'showTabBarRedDot'
       },
       {
@@ -134,7 +134,7 @@ const menusData = [
         obj: {
           index: 0,
         },
-        env: ['weapp'],
+        env: ['WEAPP'],
         methods: 'hideTabBarRedDot'
       },
       {
@@ -146,7 +146,7 @@ const menusData = [
           backgroundColor: '#0000FF',
           borderStyle: 'white'
         },
-        env: ['weapp'],
+        env: ['WEAPP'],
         methods: 'setTabBarStyle'
       },
       {
@@ -158,7 +158,7 @@ const menusData = [
           iconPath: '/path/to/iconPath',
           selectedIconPath: '/path/to/selectedIconPath'
         },
-        env: ['weapp'],
+        env: ['WEAPP'],
         methods: 'setTabBarItem'
       },
       {
@@ -167,7 +167,7 @@ const menusData = [
         obj: {
           animation: true
         },
-        env: ['weapp'],
+        env: ['WEAPP'],
         methods: 'showTabBar'
       },
       {
@@ -176,7 +176,7 @@ const menusData = [
         obj: { 
           animation: true
         },
-        env: ['weapp'],
+        env: ['WEAPP'],
         methods: 'hideTabBar'
       }
     ]
@@ -190,7 +190,7 @@ const menusData = [
         obj: { 
           title: '当前页面'
         },
-        env: ['weapp'],
+        env: ['WEAPP'],
         methods: 'setTopBarText'
       }
     ]
@@ -202,29 +202,227 @@ const menusData = [
         name: 'navigateTo',
         type: 'obj',
         obj: { 
-          url: 'test?id=1'
+          icon: 'none',
+          title: '当前环境支持navigateTo'
         },
-        env: ['weapp'],
-        methods: 'navigateTo'
+        env: ['WEAPP', 'WEB', 'RN'],
+        methods: 'showToast'
+      },
+      {
+        name: 'redirectTo',
+        type: 'obj',
+        obj: { 
+          icon: 'none',
+          title: '当前环境支持redirectTo'
+        },
+        env: ['WEAPP', 'WEB', 'RN'],
+        methods: 'showToast'
+      },
+      {
+        name: 'switchTab',
+        type: 'obj',
+        obj: { 
+          icon: 'none',
+          title: '当前环境支持switchTab'
+        },
+        env: ['WEAPP', 'RN'],
+        methods: 'showToast'
+      },
+      {
+        name: 'navigateBack',
+        type: 'obj',
+        obj: { 
+          icon: 'none',
+          title: '当前环境支持navigateBack'
+        },
+        env: ['WEAPP', 'WEB', 'RN'],
+        methods: 'showToast'
+      },
+      {
+        name: 'reLaunch',
+        type: 'obj',
+        obj: { 
+          icon: 'none',
+          title: '当前环境支持reLaunch'
+        },
+        env: ['WEAPP', 'RN'],
+        methods: 'showToast'
       }
     ]
   },
   {
     name: '动画',
     children: [
-     
+      {
+        name: 'createAnimation',
+        type: 'obj',
+        obj: { 
+          icon: 'none',
+          title: '当前环境支持createAnimation'
+        },
+        env: ['WEAPP'],
+        methods: 'showToast'
+      }
+    ]
+  },
+  {
+    name: '位置',
+    children: [
+      {
+        name: 'pageScrollTo',
+        type: 'obj',
+        obj: { 
+          scrollTop: 0,
+          duration: 300
+        },
+        env: ['WEAPP'],
+        methods: 'pageScrollTo'
+      }
+    ]
+  },
+  {
+    name: '绘图',
+    children: [
+      {
+        name: 'createCanvasContext',
+        type: 'obj',
+        obj: { 
+          icon: 'none',
+          title: '当前环境支持createCanvasContext'
+        },
+        env: ['WEAPP'],
+        methods: 'showToast'
+      },
+      {
+        name: 'createContext',
+        type: 'obj',
+        obj: { 
+          icon: 'none',
+          title: '当前环境支持createContext'
+        },
+        env: ['WEAPP'],
+        methods: 'showToast'
+      },
+      {
+        name: 'drawCanvas',
+        type: 'obj',
+        obj: { 
+          icon: 'none',
+          title: '当前环境支持drawCanvas'
+        },
+        env: ['WEAPP'],
+        methods: 'showToast'
+      }
     ]
   },
   {
     name: '下拉刷新',
     children: [
-     
+      {
+        name: 'startPullDownRefresh',
+        type: 'obj',
+        obj: { 
+          icon: 'none',
+          title: '当前环境支持startPullDownRefresh'
+        },
+        env: ['WEAPP'],
+        methods: 'showToast'
+      },
+      {
+        name: 'stopPullDownRefresh',
+        type: 'obj',
+        obj: { 
+          icon: 'none',
+          title: '当前环境支持stopPullDownRefresh'
+        },
+        env: ['WEAPP'],
+        methods: 'showToast'
+      }
     ]
   },
   {
-    name: '节点信息',
+    name: 'WXML节点信息',
     children: [
-     
+      {
+        name: 'createSelectorQuery',
+        type: 'selector',
+        obj: { 
+          icon: 'none',
+          title: '当前环境支持createSelectorQuery'
+        },
+        env: ['WEAPP', 'WEB'],
+        methods: 'createSelectorQuery'
+      },
+      {
+        name: 'selectorQuery.in(component)',
+        type: 'selector',
+        obj: { 
+          icon: 'none',
+          title: '当前环境支持selectorQuery.in(component)'
+        },
+        env: ['WEAPP', 'WEB'],
+        methods: 'in'
+      },
+      {
+        name: 'selectorQuery.select(selector)',
+        type: 'selector',
+        obj: { 
+          icon: 'none',
+          title: '当前环境支持selectorQuery.selectAll(selector)'
+        },
+        env: ['WEAPP', 'WEB'],
+        methods: 'select'
+      },
+      {
+        name: 'selectorQuery.selectAll(selector)',
+        type: 'selector',
+        obj: { 
+          icon: 'none',
+          title: '当前环境支持selectorQuery.selectAll(selector)'
+        },
+        env: ['WEAPP', 'WEB'],
+        methods: 'selectAll'
+      },
+      {
+        name: 'selectorQuery.selectViewport()',
+        type: 'selector',
+        obj: { 
+          icon: 'none',
+          title: '当前环境支持selectorQuery.selectViewport()'
+        },
+        env: ['WEAPP', 'WEB'],
+        methods: 'selectViewport'
+      },
+      {
+        name: 'nodesRef.boundingClientRect([callback])',
+        type: 'selector',
+        obj: { 
+          icon: 'none',
+          title: '当前环境支持nodesRef.boundingClientRect([callback])'
+        },
+        env: ['WEAPP', 'WEB'],
+        methods: 'boundingClientRect'
+      },
+      {
+        name: 'nodesRef.scrollOffset([callback])',
+        type: 'selector',
+        obj: { 
+          icon: 'none',
+          title: '当前环境支持nodesRef.scrollOffset([callback])'
+        },
+        env: ['WEAPP', 'WEB'],
+        methods: 'scrollOffset'
+      },
+      {
+        name: 'selectorQuery.exec([callback])',
+        type: 'selector',
+        obj: { 
+          icon: 'none',
+          title: '当前环境支持selectorQuery.exec([callback])'
+        },
+        env: ['WEAPP', 'WEB'],
+        methods: 'exec'
+      }
     ]
   }
 ]
