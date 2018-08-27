@@ -8,37 +8,30 @@ body {
 
 .index {
   background-color: #f8f8f8;
-  &_top {
-    padding: 30px 40px;
-    font-size: 28px;
-    color: #888888;
+  &__top {
+    padding: 60px 80px;
+    font-size: 12PX;
+    color: #999999;
     text-align: center;
   }
-  &_main {
-    &_sub {
-      margin: 0 40px;
-      padding: 20px 40px;
+  &__main {
+    &-sub {
+      margin: 0 30px;
       background-color: #fff;
       font-size: 32px;
       border-radius: 5px;
       margin-bottom: 10px;
-    }
-    &_wp {
-      margin: 0 40px;
-      padding: 0px 40px 30px;
-      background-color: #fff;
-      border-radius: 10px;
-    }
-    &_text {
-      margin-bottom: 20px;
-      font-size: 32px;
-    }
-    &_item {
-      margin-top: 30px;
-      &_btn {
-        font-size: 28px;
-        height: 80px;
-        line-height: 80px;
+      &-title {
+        display: block;
+        padding: 0 30px;
+        height: 88px;
+        line-height: 88px;
+      }
+      &-list {
+          display: none;
+        &--unfold {
+          display: block;
+        }
       }
     }
   }

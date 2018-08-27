@@ -1,0 +1,32 @@
+page {
+  background-color: #f8f8f8;
+}
+
+body {
+  background-color: #f8f8f8;
+}
+
+.system {
+  &__btns {
+    margin-top: 30PX;
+  }
+  &__btn {
+    margin: 10PX 10PX;
+  }
+  &__box {
+    font-size: 14PX;
+    text-align: center;
+    color: #333;
+    background-color: #fff;
+    &-title {
+      padding-top: 20PX;
+    }
+    &-type {
+      height: 140PX;
+      line-height: 140PX;
+      &--null {
+        color: #999;
+      }
+    }
+  }
+}

@@ -12,8 +12,9 @@ class App extends Component {
       'pages/apis/storage/index',
       'pages/apis/location/index',
       'pages/apis/interface/index',
-      'pages/apis/system/index',
-      'pages/apis/media/index'
+      'pages/apis/media/index',
+      'pages/apis/system/systemInfo/index',
+      'pages/apis/system/networkType/index'
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -23,7 +24,13 @@ class App extends Component {
     }
   }
 
-  componentDidMount () {}
+  componentDidMount () {
+    if (process.env.TARO_ENV === 'weapp') {
+      require('taro-ui/dist/weapp/css/index.css')
+    } else if (process.env.TARO_ENV === 'h5') {
+      require('taro-ui/dist/h5/css/index.css')
+    }
+  }
 
   componentDidShow () {}
 

@@ -1,0 +1,21 @@
+.header {
+  padding: 20PX 0 35PX;
+  .title {
+    position: relative;
+    display: block;
+    line-height: 44PX;
+    text-align: center;
+    font-size: 14PX;
+    color: #999;
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70PX;
+      height: 0;
+      border-bottom: 1px solid #ccc;
+    }
+  }
+}

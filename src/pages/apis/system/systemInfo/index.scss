@@ -1,0 +1,41 @@
+page {
+  background-color: #f8f8f8;
+}
+
+body {
+  background-color: #f8f8f8;
+}
+
+.system {
+  &__list {
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #fff;
+    &-item {
+      position: relative;
+      height: 38PX;
+      line-height: 38PX;
+      font-size: 14PX;
+      &:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        left: 15PX;
+        right: 0;
+        bottom: 0;
+        border-bottom: 1px solid #e5e5e5;
+      }
+      &-title {
+        padding-left: 15PX;
+        width: 10em;
+        max-width: 10em;
+        color: #333;
+      }
+      &-content {
+        color: #666;
+      }
+    }
+  }
+  &__btn {
+    margin: 20PX 15PX 0;
+  }
+}

@@ -1,15 +1,23 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
+import { AtListItem } from 'taro-ui'
+import classNames from 'classnames'
 
 import './index.scss'
 import menusData from './menu'
 
 export default class Index extends Component {
-  config = {
-    navigationBarTitleText: '首页'
+  state = {
+    list: []
   }
 
-  componentWillMount () { }
+  config = {
+    navigationBarTitleText: 'Taro 接口能力展示'
+  }
+
+  componentWillMount () {
+    this.setState({ ...menusData })
+  }
 
   componentDidMount () { }
 
@@ -19,28 +27,44 @@ export default class Index extends Component {
 
   componentDidHide () { }
 
-  onGotoNetwork = (url) => {
-    Taro.navigateTo({
-      url
-    })
+  onGotoNetwork (url) {
+    url && Taro.navigateTo({ url })
+  }
+
+  onToggleSubMenu (index) {
+    this.setState(prev => ({
+        list: prev.list.map((item, i) => index === i ? Object.assign({}, item, { isUnfold: !item.isUnfold }) : item)
+    }))
   }
 
   render () {
+    const { desc, list } = this.state
+
     return (
       <View className='index'>
-        <View className='index_top'>
-          <Text className='index_top_text'>{menusData.desc}</Text>
+        <View className='index__top'>
+          <Text className='index__top-text'>{desc}</Text>
         </View>
-        <View className='index_main'>
-          {
-            menusData.list.map((item, index) => {
-              return (
-                <View className='index_main_sub' onClick={this.onGotoNetwork.bind(this, item.url)} key={index}>
-                  <Text>{item.name}</Text>
-                </View>
-              )
-            })
-          }
+        <View className='index__main'>
+          {list.map((item, index) => item.subList
+            ? <View className='index__main-sub' key={index}>
+                <Text className='index__main-sub-title' onClick={this.onToggleSubMenu.bind(this, index)} >{item.name}</Text>
+                {item.subList && (
+                  <View className={classNames('index__main-sub-list', { 'index__main-sub-list--unfold': item.isUnfold })}>
+                    {item.subList.map(page =>
+                      <AtListItem
+                        title={page.name}
+                        arrow='right'
+                        key={page.name}
+                        onClick={this.onGotoNetwork.bind(this, page.url)}
+                      />)}
+                  </View>
+                )}
+              </View>
+            : <View className='index__main-sub' onClick={this.onGotoNetwork.bind(this, item.url)} key={index}>
+                <Text className='index__main-sub-title'>{item.name}</Text>
+              </View>
+          )}
         </View>
       </View>
     )

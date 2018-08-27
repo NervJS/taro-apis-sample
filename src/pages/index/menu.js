@@ -1,8 +1,7 @@
 const menusData = {
   name: 'Taro API',
-  desc: '这里展示的是Taro官方端能力，将展示基本API的调用方式及效果',
-  list: [
-    {
+  desc: '这里展示的是 Taro 官方端能力，将演示基本 API 的调用方式及效果。',
+  list: [{
       name: '网络',
       url: '/pages/apis/network/index'
     },
@@ -19,12 +18,17 @@ const menusData = {
     },
     {
       name: '设备',
-      url: '/pages/apis/system/index'
+      subList: [{
+        name: '系统信息',
+        url: '/pages/apis/system/systemInfo/index'
+      }, {
+        name: '网络状态',
+        url: '/pages/apis/system/networkType/index'
+      }]
     },
     {
       name: '界面',
       url: '/pages/apis/interface/index'
-    }
-  ]
+  }]
 }
 export default menusData
