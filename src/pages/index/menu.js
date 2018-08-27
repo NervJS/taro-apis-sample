@@ -4,11 +4,14 @@ const menusData = {
   list: [
     {
       name: '网络',
-      url: '/pages/apis/network/network'
+      url: '/pages/apis/network/index'
     },
     {
       name: '数据缓存',
       url: '/pages/apis/storage/index'
+    }, {
+      name: '媒体',
+      url: '/pages/apis/media/index'
     },
     {
       name: '位置',

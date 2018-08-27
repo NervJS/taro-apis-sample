@@ -1,57 +1,140 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Text, Button, Image } from '@tarojs/components'
+import { View, Text, Image } from '@tarojs/components'
 import { AtButton, AtCard } from 'taro-ui'
 import './index.scss'
 
 export default class Network extends Component {
   config = {
-    navigationBarTitleText: '网络'
+    navigationBarTitleText: '媒体'
   }
 
   state = {
     meun: [{
       id: 1,
       isShowMore: false,
-      name: '发送请求',
+      name: '图片',
       apiList: [{
-        name: 'Taro.request',
+        name: 'Taro.chooseImage',
         method: 'request'
+      }, {
+        name: 'Taro.previewImage',
+        method: 'previewImage'
+      }, {
+        name: 'Taro.getImageInfo',
+        method: 'getImageInfo'
+      }, {
+        name: 'Taro.saveImageToPhotosAlbum',
+        method: 'saveImageToPhotosAlbum'
       }]
     }, {
       id: 2,
       isShowMore: false,
-      name: '上传、下载',
+      name: '录音',
       apiList: [{
-        name: 'Taro.uploadFile',
-        method: 'uploadFile'
+        name: 'Taro.startRecord',
+        method: 'startRecord'
       }, {
-        name: 'Taro.downloadFile',
-        method: 'downloadFile'
+          name: 'Taro.stopRecord',
+          method: 'stopRecord'
       }]
     }, {
       id: 3,
       isShowMore: false,
-      name: 'WebSocket',
+      name: '录音管理',
       apiList: [{
-        name: 'Taro.connectSocket',
-        method: 'Taro.connectSocket'
-      }, {
-        name: 'SocketTask',
-        method: 'SocketTask'
-      }, {
-        name: 'SocketTask.close',
-        method: 'close'
-      }, {
-        name: 'SocketTask.onOpen',
-        method: 'onOpen'
-      }, {
-        name: 'SocketTask.onClose',
-        method: 'onClose'
-      }, {
-        name: 'SocketTask.onError',
-        method: 'onError'
+        name: 'Taro.getRecorderManager',
+        method: 'getRecorderManager'
       }]
-    }],
+    }, {
+      id: 4,
+      isShowMore: false,
+      name: '音频播放控制',
+      apiList: [{
+        name: 'Taro.playVoice',
+        method: 'playVoice'
+      }, {
+        name: 'Taro.pauseVoice',
+        method: 'pauseVoice'
+      }, {
+        name: 'Taro.stopVoice',
+        method: 'stopVoice'
+      }]
+    }, {
+      id: 5,
+      isShowMore: false,
+      name: '音乐播放控制',
+      apiList: [{
+        name: 'Taro.getBackgroundAudioPlayerState',
+        method: 'getBackgroundAudioPlayerState'
+      }, {
+          name: 'Taro.playBackgroundAudio',
+          method: 'playBackgroundAudio'
+      }, {
+        name: 'Taro.pauseBackgroundAudio',
+        method: 'pauseBackgroundAudio'
+      }, {
+        name: 'Taro.seekBackgroundAudio',
+        method: 'seekBackgroundAudio'
+      }, {
+        name: 'Taro.stopBackgroundAudio',
+        method: 'stopBackgroundAudio'
+      }, {
+        name: 'Taro.onBackgroundAudioPlay',
+        method: 'onBackgroundAudioPlay'
+      }, {
+        name: 'Taro.onBackgroundAudioPause',
+        method: 'onBackgroundAudioPause'
+      }, {
+        name: 'Taro.onBackgroundAudioStop',
+        method: 'onBackgroundAudioStop'
+      }]
+    }, {
+      id: 6,
+      isShowMore: false,
+      name: '背景音频播放管理',
+      apiList: [{
+        name: 'Taro.getBackgroundAudioManager',
+        method: 'getBackgroundAudioManager'
+      }]
+    }, {
+      id: 7,
+      isShowMore: false,
+      name: '音频组件控制',
+      apiList: [{
+        name: 'Taro.createAudioContext',
+        method: 'createAudioContext'
+      }, {
+        name: 'Taro.createInnerAudioContext',
+        method: 'createInnerAudioContext'
+      }]
+    }, {
+      id: 8,
+      isShowMore: false,
+      name: '视频',
+      apiList: [{
+        name: 'Taro.chooseVideo',
+        method: 'chooseVideo'
+      }, {
+        name: 'Taro.saveVideoToPhotosAlbum',
+        method: 'saveVideoToPhotosAlbum'
+      }]
+    }, {
+      id: 9,
+      isShowMore: false,
+      name: '视频组件控制',
+      apiList: [{
+        name: 'Taro.createVideoContext',
+        method: 'createVideoContext'
+      }]
+    }, {
+      id: 10,
+      isShowMore: false,
+      name: '相机组件控制',
+      apiList: [{
+        name: 'Taro.createCameraContext',
+        method: 'createCameraContext'
+      }]
+      }],
     githubData: [],
     isShowResult: false
   }
@@ -135,12 +218,14 @@ export default class Network extends Component {
           <Text className='common_tip_text'>这里展示的是Taro官方端能力，将展示基本API的调用方式及效果</Text>
         </View>
         <View className='common_header'>
-          <Text className='common_title'>网络</Text>
+          <Text className='common_title'>媒体</Text>
         </View>
         {isShowResult && <View>
-          <AtCard title='API效果展示'>
+          <AtCard
+            title='API效果展示'
+          >
             {isShowRequest && githubDataDom}
-          </AtCard>
+        </AtCard>
         </View>}
         <View className='index_main'>
           {meun.map((item, idx) => {
@@ -151,7 +236,7 @@ export default class Network extends Component {
               </View>
               {item.isShowMore && item.apiList.map((api, aIdx) => {
                 return <View className='index_main_btn' onClick={this.this.onHandleApiClick.bind(null, api)} key={aIdx} >
-                  <AtButton type='primary'>{api.name}</AtButton>
+                    <AtButton type='primary'>{api.name}</AtButton>
                 </View>
               })}
             </View>

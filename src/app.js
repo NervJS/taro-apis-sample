@@ -12,7 +12,8 @@ class App extends Component {
       'pages/apis/storage/index',
       'pages/apis/location/index',
       'pages/apis/interface/index',
-      'pages/apis/system/index'
+      'pages/apis/system/index',
+      'pages/apis/media/index'
     ],
     window: {
       backgroundTextStyle: 'light',
