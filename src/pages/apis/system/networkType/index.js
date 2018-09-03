@@ -13,7 +13,7 @@ export default class NetworkType extends Component {
   }
 
   config = {
-    navigationBarTitleText: '设备'
+    navigationBarTitleText: '网络状态'
   }
 
   componentWillMount () {
