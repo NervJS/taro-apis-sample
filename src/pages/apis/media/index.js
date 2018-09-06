@@ -15,7 +15,7 @@ export default class Network extends Component {
       name: '图片',
       apiList: [{
         name: 'Taro.chooseImage',
-        method: 'request'
+        method: 'chooseImage'
       }, {
         name: 'Taro.previewImage',
         method: 'previewImage'
@@ -134,8 +134,8 @@ export default class Network extends Component {
         name: 'Taro.createCameraContext',
         method: 'createCameraContext'
       }]
-      }],
-    githubData: [],
+    }],
+    showDesc: '',
     isShowResult: false
   }
 
@@ -157,60 +157,13 @@ export default class Network extends Component {
       isShowResult: true
     })
     const env = Taro.getEnv()
-    if (api.method === 'request') {
-      this.request()
-    } else if (api.method === 'uploadFile' || api.method === 'downloadFile') {
-      Taro.showToast({
-        icon: 'none',
-        title: env === 'WEAPP' ? `${env}环境下支持 Taro.${api.method} API` : `${env}环境下不支持 Taro.${api.method} API`
-      })
-    } else {
-      Taro.showToast({
-        icon: 'none',
-        title: `${env}环境下支持 ${api.method} API`
-      })
-    }
-  }
-
-  request = async () => {
-    let { githubData, isShowRequest } = this.state
-    if (githubData.length === 0) {
-      Taro.showToast({
-        icon: 'none',
-        title: '请求了GitHub上与JavaScript相关的排名前十的项目'
-      })
-      const res = await Taro.request({
-        url: 'https://api.github.com/search/repositories?q=language:javascript&location:China&sort=stars'
-      })
-      githubData = res.data.items.slice(0, 10).map((item) => {
-        return {
-          name: item.name,
-          stars: item.stargazers_count,
-          avatar_url: item.owner.avatar_url
-        }
-      })
-    }
-    this.setState({
-      githubData,
-      isShowRequest: !isShowRequest
-    })
+    let showDesc
+    showDesc = env === 'WEAPP' ? `${env}环境下支持 Taro.${api.method} API` : `${env}环境下不支持 Taro.${api.method} API`
+    this.setState({ showDesc })
   }
 
   render() {
-    const { meun, githubData, isShowRequest, isShowResult } = this.state
-
-    const githubDataDom = <View className='index_main_item_show'>
-      <View className='request_text'>与JavaScript相关的GitHub排名：</View>
-      <View className='request_wp'>
-        {githubData.map((git, gIdx) => {
-          return <View className='request_item' key={gIdx}>
-            <Text className='request_item_text'>仓库名称：{git.name}</Text>
-            <Text className='request_item_text'>star数: {git.stars}个</Text>
-            <View className='request_item_view'>图标:<Image src={git.avatar_url} /></View>
-          </View>
-        })}
-      </View>
-    </View>
+    const { meun, showDesc, isShowResult } = this.state
 
     return (
       <View className='index'>
@@ -221,10 +174,8 @@ export default class Network extends Component {
           <Text className='common_title'>媒体</Text>
         </View>
         {isShowResult && <View>
-          <AtCard
-            title='API效果展示'
-          >
-            {isShowRequest && githubDataDom}
+          <AtCard title='API效果展示'>
+          {showDesc}
         </AtCard>
         </View>}
         <View className='index_main'>
@@ -235,7 +186,7 @@ export default class Network extends Component {
                 <View className='common_menu_title_icon' />
               </View>
               {item.isShowMore && item.apiList.map((api, aIdx) => {
-                return <View className='index_main_btn' onClick={this.this.onHandleApiClick.bind(null, api)} key={aIdx} >
+                return <View className='index_main_btn' onClick={this.onHandleApiClick.bind(null, api)} key={aIdx} >
                     <AtButton type='primary'>{api.name}</AtButton>
                 </View>
               })}

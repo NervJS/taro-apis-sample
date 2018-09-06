@@ -52,6 +52,7 @@ export default class Network extends Component {
         method: 'onError'
       }]
     }],
+    showDesc: '',
     githubData: [],
     isShowResult: false
   }
@@ -74,28 +75,28 @@ export default class Network extends Component {
       isShowResult: true
     })
     const env = Taro.getEnv()
+    let showDesc
+    let isShowRequest
     if (api.method === 'request') {
       this.request()
+      isShowRequest = true
+      showDesc = `${env}环境下支持 ${api.method} API; 请求了GitHub上与JavaScript相关的排名前十的项目`
     } else if (api.method === 'uploadFile' || api.method === 'downloadFile') {
-      Taro.showToast({
-        icon: 'none',
-        title: env === 'WEAPP' ? `${env}环境下支持 Taro.${api.method} API` : `${env}环境下不支持 Taro.${api.method} API`
-      })
+      isShowRequest = false
+      showDesc = env === 'WEAPP' ? `${env}环境下支持 Taro.${api.method} API` : `${env}环境下不支持 Taro.${api.method} API`
     } else {
-      Taro.showToast({
-        icon: 'none',
-        title: `${env}环境下支持 ${api.method} API`
-      })
+      isShowRequest = false
+      showDesc = `${env}环境下支持 ${api.method} API`
     }
+    this.setState({
+      showDesc,
+      isShowRequest
+    })
   }
 
   request = async () => {
-    let { githubData, isShowRequest } = this.state
+    let { githubData } = this.state
     if (githubData.length === 0) {
-      Taro.showToast({
-        icon: 'none',
-        title: '请求了GitHub上与JavaScript相关的排名前十的项目'
-      })
       const res = await Taro.request({
         url: 'https://api.github.com/search/repositories?q=language:javascript&location:China&sort=stars'
       })
@@ -108,13 +109,12 @@ export default class Network extends Component {
       })
     }
     this.setState({
-      githubData,
-      isShowRequest: !isShowRequest
+      githubData
     })
   }
 
   render() {
-    const { meun, githubData, isShowRequest, isShowResult } = this.state
+    const { meun, showDesc, githubData, isShowRequest, isShowResult } = this.state
 
     const githubDataDom = <View className='index_main_item_show'>
       <View className='request_text'>与JavaScript相关的GitHub排名：</View>
@@ -139,6 +139,7 @@ export default class Network extends Component {
         </View>
         {isShowResult && <View>
           <AtCard title='API效果展示'>
+            {showDesc}
             {isShowRequest && githubDataDom}
           </AtCard>
         </View>}
@@ -150,7 +151,7 @@ export default class Network extends Component {
                 <View className='common_menu_title_icon' />
               </View>
               {item.isShowMore && item.apiList.map((api, aIdx) => {
-                return <View className='index_main_btn' onClick={this.this.onHandleApiClick.bind(null, api)} key={aIdx} >
+                return <View className='index_main_btn' onClick={this.onHandleApiClick.bind(null, api)} key={aIdx} >
                   <AtButton type='primary'>{api.name}</AtButton>
                 </View>
               })}

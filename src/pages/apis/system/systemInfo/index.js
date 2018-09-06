@@ -10,7 +10,7 @@ export default class SystemInfo extends Component {
   }
 
   config = {
-    navigationBarTitleText: '设备'
+    navigationBarTitleText: '系统信息'
   }
 
   async getSystemInfo () {

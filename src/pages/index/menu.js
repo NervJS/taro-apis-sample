@@ -4,19 +4,16 @@ const menusData = {
   list: [{
       name: '网络',
       url: '/pages/apis/network/index'
-    },
-    {
-      name: '数据缓存',
-      url: '/pages/apis/storage/index'
     }, {
       name: '媒体',
       url: '/pages/apis/media/index'
-    },
-    {
+    }, {
+      name: '数据缓存',
+      url: '/pages/apis/storage/index'
+    }, {
       name: '位置',
       url: '/pages/apis/location/index'
-    },
-    {
+    }, {
       name: '设备',
       subList: [{
         name: '系统信息',
@@ -25,8 +22,7 @@ const menusData = {
         name: '网络状态',
         url: '/pages/apis/system/networkType/index'
       }]
-    },
-    {
+    }, {
       name: '界面',
       url: '/pages/apis/interface/index'
   }]
