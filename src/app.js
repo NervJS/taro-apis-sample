@@ -1,7 +1,9 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import Index from './pages/index'
 import '@tarojs/async-await'
+
+import Index from './pages/index'
+
 import './app.scss'
 
 class App extends Component {

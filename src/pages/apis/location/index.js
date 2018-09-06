@@ -60,19 +60,22 @@ export default class Location extends Component {
         <Button
           className='oprate_btn'
           hoverClass='btn_hover' 
-          onClick={this.handleLocation.bind(this, 'getLocation')}>
+          onClick={this.handleLocation.bind(this, 'getLocation')}
+        >
           获取地理位置
         </Button>
         <Button
           className='oprate_btn'
           hoverClass='btn_hover' 
-          onClick={this.handleLocation.bind(this, 'chooseLocation')}>
+          onClick={this.handleLocation.bind(this, 'chooseLocation')}
+        >
           选择位置
         </Button>
         <Button
           className='oprate_btn'
           hoverClass='btn_hover' 
-          onClick={this.handleLocation.bind(this, 'openLocation')}>
+          onClick={this.handleLocation.bind(this, 'openLocation')}
+        >
           查看位置
         </Button>
       </View>
