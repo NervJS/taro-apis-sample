@@ -39,7 +39,7 @@ const menusData = [
         name: '​显示模态弹窗',
         type: 'obj',
         obj: {
-          title: '​显示模态弹窗',    
+          title: '​显示模态弹窗',   
         },
         env: ['WEB', 'WEAPP', 'RN'],
         methods: 'showModal'
@@ -59,23 +59,23 @@ const menusData = [
     name: '设置导航条',
     children: [
       {
-        name: 'setTabBarBadge',
+        name: 'setNavigationBarTitle',
         type: 'obj',
         obj: {
-          title: '当前页面'  
+          title: '更改了当前页面的标题'  
         },
         env: ['WEAPP'],
-        methods: 'setTabBarBadge'
+        methods: 'setNavigationBarTitle'
       },
       {
-        name: '在当前页面显示导航条加载动画',
+        name: 'showNavigationBarLoading',
         type: '',
         obj: {},
         env: ['WEAPP'],
         methods: 'showNavigationBarLoading'
       },
       {
-        name: '隐藏导航条加载动画',
+        name: 'hideNavigationBarLoading',
         type: '',
         obj: {},
         env: ['WEAPP'],
@@ -88,12 +88,12 @@ const menusData = [
           frontColor: '#ffffff',
           backgroundColor: '#ff0000',
           animation: {
-              duration: 400,
-              timingFunc: 'easeIn'
+            duration: 400,
+            timingFunc: 'easeIn'
           }
         },
         env: ['WEAPP'],
-        methods: 'hideNavigationBarLoading'
+        methods: 'setNavigationBarColor'
       }
     ]
   },
@@ -102,7 +102,7 @@ const menusData = [
     children: [
       {
         name: 'setTabBarBadge',
-        type: 'obj',
+        type: 'tabbar',
         obj: {
           index: 0,
           text: '1'
@@ -112,7 +112,7 @@ const menusData = [
       },
       {
         name: 'removeTabBarBadge',
-        type: 'obj',
+        type: 'tabbar',
         obj: {
           index: 0,
         },
@@ -121,7 +121,7 @@ const menusData = [
       },
       {
         name: 'showTabBarRedDot',
-        type: 'obj',
+        type: 'tabbar',
         obj: {
           index: 0,
         },
@@ -130,7 +130,7 @@ const menusData = [
       },
       {
         name: 'hideTabBarRedDot',
-        type: 'obj',
+        type: 'tabbar',
         obj: {
           index: 0,
         },
@@ -139,7 +139,7 @@ const menusData = [
       },
       {
         name: 'setTabBarStyle',
-        type: 'obj',
+        type: 'tabbar',
         obj: {
           color: '#FF0000',
           selectedColor: '#00FF00',
@@ -151,7 +151,7 @@ const menusData = [
       },
       {
         name: 'setTabBarItem',
-        type: 'obj',
+        type: 'tabbar',
         obj: {
           index: 0,
           text: 'text',
@@ -163,7 +163,7 @@ const menusData = [
       },
       {
         name: 'showTabBar',
-        type: 'obj',
+        type: 'tabbar',
         obj: {
           animation: true
         },
@@ -172,7 +172,7 @@ const menusData = [
       },
       {
         name: 'hideTabBar',
-        type: 'obj',
+        type: 'tabbar',
         obj: { 
           animation: true
         },

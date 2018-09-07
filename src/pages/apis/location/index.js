@@ -1,31 +1,21 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Text, Button, Input, Canvas } from '@tarojs/components'
+import { View, Text, Button } from '@tarojs/components'
+import { AtButton, AtCard } from 'taro-ui'
 
 import './index.scss'
 
 export default class Location extends Component {
 
   config = {
-    navigationBarTitleText: '网络相关API展示页'
+    navigationBarTitleText: '位置'
   }
 
   state = {
     componentName: '位置',
-  
+    resultText: ''
   }
 
-  componentWillMount () { }
-
-  componentDidMount () { 
-  }
-
-  componentWillUnmount () { }
-
-  componentDidShow () { }
-
-  componentDidHide () { }
-
-  handleLocation (type) {
+  async handleLocation (type) {
     if (Taro.getEnv() === 'WEB') {
       Taro.showToast({
         icon: 'none',
@@ -33,21 +23,29 @@ export default class Location extends Component {
       }) 
       return
     }
-    Taro[type]({
-      type: 'gcj02',
-      success: function (res) {
-        console.log(res)
-        Taro.showToast({
-          icon: 'none',
-          title: res
-        }) 
-      }
+    let res
+    if (type !== 'openLocation') {
+      res = await Taro[type]({
+        type: 'gcj02'
+      })
+    } else {
+      res = await Taro[type]({
+        type: 'gcj02',
+        latitude: 22.55375,
+        longitude: 113.88732
+      })
+    }
+    
+    const resultText = JSON.stringify(res, 2)
+    this.setState({
+      resultText
     })
   }
 
   render () {
     const { 
-      componentName
+      componentName,
+      resultText
     } = this.state
     return (
       <View className='location'>
@@ -57,24 +55,26 @@ export default class Location extends Component {
         <View className='common_header'>
           <Text className='common_title'>{componentName}</Text>
         </View>
-        <Button
-          className='oprate_btn'
-          hoverClass='btn_hover' 
-          onClick={this.handleLocation.bind(this, 'getLocation')}>
-          获取地理位置
-        </Button>
-        <Button
-          className='oprate_btn'
-          hoverClass='btn_hover' 
-          onClick={this.handleLocation.bind(this, 'chooseLocation')}>
-          选择位置
-        </Button>
-        <Button
-          className='oprate_btn'
-          hoverClass='btn_hover' 
-          onClick={this.handleLocation.bind(this, 'openLocation')}>
-          查看位置
-        </Button>
+        <View className='location_main'>
+          <View className='location_result'>
+            <AtCard title='API效果展示'>
+              <View style='word-wrap: break-word'>
+                {resultText}
+              </View>
+            </AtCard>
+          </View>
+          <View className='location_wp'>
+            <View className='location_wp_btn' onClick={this.handleLocation.bind(this, 'getLocation')}>
+              <AtButton type='primary'>获取地理位置</AtButton>
+            </View>
+            <View className='location_wp_btn' onClick={this.handleLocation.bind(this, 'chooseLocation')}>
+              <AtButton type='primary'>选择位置</AtButton>
+            </View>
+            <View className='location_wp_btn' onClick={this.handleLocation.bind(this, 'openLocation')}>
+              <AtButton type='primary'>查看位置</AtButton>
+            </View>
+          </View>
+        </View>
       </View>
     )
   }

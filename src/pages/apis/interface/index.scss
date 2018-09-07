@@ -1,53 +1,28 @@
+page {
+  background-color: #f8f8f8;
+}
+
+body {
+  background-color: #f8f8f8;
+}
 
 .interface, .taro_router {
   background-color: #f8f8f8;
 }
-.interface_menu {
-  margin-top: 20px;
-  padding: 0 40px;
-  .menu {
-    margin-bottom: 20px;
-    &_title {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #fff;
-      padding: 20px;
-      &_name {
-        font-size: 40px;
-      }
-      &_icon {
-        width: 30px;
-        height: 30px;
-        border-right: 2px solid #676767;
-        border-bottom: 2px solid #676767;
-        transform: rotate(-45deg);
-        display: block;
-        transition: all 0.3s;
-      } 
-    }
-    &_item {
-      height: 80px;
-      width: 400px;
-      margin: 20px auto 0;
-      border-radius: 5px;
-      color: #ffffff;
-      font-size: 30px;
-      background-color: #0faeff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: none;   
-    }
-  }
-  .active {
 
-    .menu_title {
-      color: green;
-      &_icon {
-        transform: rotate(45deg);
-        border-color: green;
-      }
+.interface {
+  background-color: #f8f8f8;
+  &_top {
+    padding: 30px 40px;
+    font-size: 28px;
+    color: #888888;
+    text-align: center;
+  }
+  &_main {
+    padding: 0 20px;
+    margin-top: 40px;
+    &_btn {
+      margin-top: 20px;
     }
   }
 }

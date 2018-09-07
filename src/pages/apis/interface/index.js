@@ -1,5 +1,6 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Text, Button } from '@tarojs/components'
+import { View, Text } from '@tarojs/components'
+import { AtButton, AtCard } from 'taro-ui'
 
 import './index.scss'
 import menusData from './data'
@@ -7,31 +8,20 @@ import menusData from './data'
 export default class Location extends Component {
 
   config = {
-    navigationBarTitleText: '网络相关API展示页'
+    navigationBarTitleText: '界面'
   }
 
   state = {
     componentName: '界面',
-    currentIndex: 0
+    currentIndex: -1,
+    resultText: ''
   }
 
-  componentWillMount () { }
-
-  componentDidMount () { 
-   
-  }
-
-  componentWillUnmount () { }
-
-  componentDidShow () { }
-
-  componentDidHide () { }
-
-  handleMenuItem (methods, type, env, obj={}) {
-    if (env.indexOf(Taro.getEnv()) === -1) {
-      Taro.showToast({
-        icon: 'none',
-        title: `该api暂不支持${Taro.getEnv()}`
+  handleMenuItem({ methods, type, env, obj = {}, name}) {
+    const nowEnv = Taro.getEnv()
+    if (env.indexOf(nowEnv) === -1) {
+      this.setState({
+        resultText: `该api暂不支持${nowEnv}环境`
       })
       return
     }
@@ -39,63 +29,52 @@ export default class Location extends Component {
       let query = Taro.createSelectorQuery()
       switch (methods) {
         case 'createSelectorQuery':
-          Taro.showToast({
-            icon: 'none',
-            title: '成功创建SelectorQuery对象实例'
+          this.setState({
+            resultText: `成功创建了SelectorQuery对象实例`
           })
           break
         case 'in':
-          query = Taro.createSelectorQuery().in(this.$scope)
-          console.log(query)
-          Taro.showToast({
-            icon: 'none',
-            title: '选取范围更改为自定义组件component内,在h5中不起作用'
+          query = query.in(this.$scope)
+          this.setState({
+            resultText: `选取范围更改为自定义组件component内，（注：在h5中不起作用）`
           })
           break
         case 'select':
           query
             .select('.common_title')
             .boundingClientRect( rect => {
-              console.log(rect)
-              Taro.showToast({
-                icon: 'none',
-                title: `id: ${rect.id};left:${rect.left}right:${rect.right};\ntop:${rect.top};width:${rect.width};height:${rect.height}`
+              this.setState({
+                resultText: `选取的是标题节点的相关信息； \n ${JSON.stringify(rect, 2)}`
               })
             })
             .exec()
           break
         case 'selectAll':
           query
-            .selectAll('.menu_title')
+            .selectAll('.common_menu_title')
             .boundingClientRect( rect => {
-              console.log(rect)
-              Taro.showToast({
-                icon: 'none',
-                title: `见控制台，打印出的匹配的.menu_title所有节点`
+              this.setState({
+                resultText: `匹配出.common_menu_title的所有节点； \n ${JSON.stringify(rect, 2)}`
               })
             })
             .exec()
           break
         case 'selectViewport':
           query
-            .selectViewport('.menu_title')
+            .selectViewport()
             .boundingClientRect( rect => {
-              console.log(rect)
-              Taro.showToast({
-                icon: 'none',
-                title: `当前显示区域的width:${rect.width};height:${rect.height};\n更多请查看控制台打印信息`
+              this.setState({
+                resultText: `当前显示区域相关信息； \n ${JSON.stringify(rect, 2)}`
               })
             })
             .exec()
           break
         case 'boundingClientRect':
           query
-            .selectViewport('.menu_title')
+            .select('.common_title')
             .boundingClientRect( rect => {
-              console.log(rect)
-              Taro.showToast({
-                icon: 'none',
-                title: `返回节点信息的位置left、right等字段描述`
+              this.setState({
+                resultText: `返回节点信息的位置left、right等字段描述； \n ${JSON.stringify(rect, 2)}`
               })
             })
             .exec()
@@ -104,22 +83,18 @@ export default class Location extends Component {
           query
             .selectViewport()
             .scrollOffset( rect => {
-              console.log(rect)
-              Taro.showToast({
-                icon: 'none',
-                title: `节点的滚动位置${rect.scrollTop}${rect.scrollLeft}`
+              this.setState({
+                resultText: `节点的滚动位置${rect.scrollTop}${rect.scrollLeft}`
               })
             })
             .exec()
           break 
-        case 'scrollOffset':
+        case 'exec':
           query
             .selectViewport()
             .scrollOffset( rect => {
-              console.log(rect)
-              Taro.showToast({
-                icon: 'none',
-                title: `节点的滚动位置${rect.scrollTop}${rect.scrollLeft}`
+              this.setState({
+                resultText: `执行了exec方法； 获得了节点的滚动位置${JSON.stringify(rect, 2)}`
               })
             })
             .exec()
@@ -127,8 +102,25 @@ export default class Location extends Component {
           
       }
     } else if (type === 'obj') {
-      Taro[methods](obj)
+      if (methods === 'showToast' && name !== '显示消息提示框') {
+        const title = obj.title
+        this.setState({
+          resultText: title
+        })
+      } else {
+        this.setState({
+          resultText: `${name} api已执行`
+        })
+        Taro[methods](obj)
+      }
+    } else if (type === 'tabbar') {
+      this.setState({
+        resultText: `当前环境支持 ${name}`
+      })
     } else {
+      this.setState({
+        resultText: `${name} api已执行`
+      })
       Taro[methods]()
     }
    
@@ -141,7 +133,8 @@ export default class Location extends Component {
   render () {
     const { 
       componentName,
-      currentIndex
+      currentIndex,
+      resultText
     } = this.state
     return (
       <View className='interface'>
@@ -151,34 +144,31 @@ export default class Location extends Component {
         <View className='common_header'>
           <Text className='common_title'>{componentName}</Text>
         </View>
-        <View className='interface_menu'>
-          {
-           menusData.map((menu, index) => {
+        <View>
+          <AtCard title='API效果展示'>
+            <View style='word-wrap: break-word'>
+              {resultText}
+            </View>
+          </AtCard>
+        </View>
+        <View className='interface_main'>
+          {menusData.map((menu, index) => {
               return (
-                <View className={currentIndex === index ? 'menu active' : 'menu'} key={index}>
-                  <View 
-                    className='menu_title' 
-                    onClick={this.handleMenu.bind(this, index)}
-                  >
-                    <Text className='menu_title_name'>{menu.name}</Text>
-                    <Text className='menu_title_icon'></Text>
+                <View className={currentIndex === index ? 'common_menu active' : 'common_menu'} key={index}>
+                  <View  className='common_menu_title'  onClick={this.handleMenu.bind(this, index)}>
+                    <Text className='common_menu_title_name'>{menu.name}</Text>
+                    <Text className='common_menu_title_icon'></Text>
                   </View>
-                  { 
-                    currentIndex === index && menu.children.map((item) => {
-                      return (
-                        <Button 
-                          className='menu_item' 
-                          onClick={this.handleMenuItem.bind(this, item.methods, item.type, item.env, item.obj)}
-                        >
-                          {item.name}
-                        </Button>
-                      )
-                    })
-                  }
+                  {currentIndex === index && menu.children.map((item, aIdx) => {
+                    return (
+                      <View className='interface_main_btn' onClick={this.handleMenuItem.bind(this, item)} key={aIdx} >
+                        <AtButton type='primary' >{item.name}</AtButton>
+                      </View>
+                    )
+                  })}
                 </View>
               )
-            })
-          }
+            })}
         </View>
       </View>
     )
