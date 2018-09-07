@@ -8,7 +8,29 @@ import './index.scss'
 export default class Storage extends Component {
   state = {
     storageKey: '',
-    storageValue: ''
+    storageValue: '',
+    btnList: [
+      {
+        name: '存储数据',
+        style: 'primary',
+        type: 'setStorage'
+      }, 
+      {
+        name: '读取数据',
+        style: 'primary',
+        type: 'getStorage'
+      }, 
+      {
+        name: '移除指定数据',
+        style: 'secondary',
+        type: 'removeStorage'
+      },
+      {
+        name: '清理数据',
+        style: 'secondary',
+        type: 'clearStorage'
+      }
+    ]
   }
 
   config = {
@@ -89,27 +111,9 @@ export default class Storage extends Component {
   render () {
     const {
       storageKey,
-      storageValue
+      storageValue,
+      btnList
     } = this.state
-
-    const btnList = [{
-        name: '存储数据',
-        style: 'primary',
-        type: 'setStorage'
-      }, {
-        name: '读取数据',
-        style: 'primary',
-        type: 'getStorage'
-      }, {
-        name: '移除指定数据',
-        style: 'secondary',
-        type: 'removeStorage'
-      }, {
-        name: '清理数据',
-        style: 'secondary',
-        type: 'clearStorage'
-      }
-    ]
 
     return (
       <View className='storage'>
