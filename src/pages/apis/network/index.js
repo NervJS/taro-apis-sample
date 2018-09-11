@@ -53,8 +53,7 @@ export default class Network extends Component {
       }]
     }],
     showDesc: '',
-    githubData: [],
-    isShowResult: false
+    githubData: []
   }
 
   onHandleTitleClick = (meunItem) => {
@@ -71,9 +70,6 @@ export default class Network extends Component {
   }
 
   onHandleApiClick = (api) => {
-    this.setState({
-      isShowResult: true
-    })
     const env = Taro.getEnv()
     let showDesc
     let isShowRequest
@@ -114,7 +110,7 @@ export default class Network extends Component {
   }
 
   render() {
-    const { meun, showDesc, githubData, isShowRequest, isShowResult } = this.state
+    const { meun, showDesc, githubData, isShowRequest } = this.state
 
     const githubDataDom = <View className='index_main_item_show'>
       <View className='request_text'>与JavaScript相关的GitHub排名：</View>
@@ -137,12 +133,12 @@ export default class Network extends Component {
         <View className='common_header'>
           <Text className='common_title'>网络</Text>
         </View>
-        {isShowResult && <View>
+        <View>
           <AtCard title='API效果展示'>
             {showDesc}
             {isShowRequest && githubDataDom}
           </AtCard>
-        </View>}
+        </View>
         <View className='index_main'>
           {meun.map((item, idx) => {
             return <View className={item.isShowMore ? 'common_menu active' : 'common_menu'} key={idx}>

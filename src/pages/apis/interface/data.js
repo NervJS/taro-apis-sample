@@ -39,7 +39,7 @@ const menusData = [
         name: '​显示模态弹窗',
         type: 'obj',
         obj: {
-          title: '​显示模态弹窗',    
+          title: '​显示模态弹窗',   
         },
         env: ['WEB', 'WEAPP', 'RN'],
         methods: 'showModal'
@@ -59,24 +59,23 @@ const menusData = [
     name: '设置导航条',
     children: [
       {
-        name: 'setTabBarBadge',
+        name: 'setNavigationBarTitle',
         type: 'obj',
         obj: {
-          index: 0,
-          text: '1323' 
+          title: '更改了当前页面的标题'  
         },
         env: ['WEAPP'],
-        methods: 'setTabBarBadge'
+        methods: 'setNavigationBarTitle'
       },
       {
-        name: '在当前页面显示导航条加载动画',
+        name: 'showNavigationBarLoading',
         type: '',
         obj: {},
         env: ['WEAPP'],
         methods: 'showNavigationBarLoading'
       },
       {
-        name: '隐藏导航条加载动画',
+        name: 'hideNavigationBarLoading',
         type: '',
         obj: {},
         env: ['WEAPP'],
@@ -89,18 +88,18 @@ const menusData = [
           frontColor: '#ffffff',
           backgroundColor: '#ff0000',
           animation: {
-              duration: 400,
-              timingFunc: 'easeIn'
+            duration: 400,
+            timingFunc: 'easeIn'
           }
         },
         env: ['WEAPP'],
-        methods: 'hideNavigationBarLoading'
+        methods: 'setNavigationBarColor'
       }
     ]
   },
   {
     name: '设置TabBar',
-    type: 'tabBar',
+    type: 'tabbar',
     children: [
       {
         name: 'setTabBarBadge',
@@ -156,9 +155,7 @@ const menusData = [
         type: 'obj',
         obj: {
           index: 0,
-          text: 'text',
-          iconPath: '/path/to/iconPath',
-          selectedIconPath: '/path/to/selectedIconPath'
+          text: '改变list'
         },
         env: ['WEAPP'],
         methods: 'setTabBarItem'
@@ -190,7 +187,7 @@ const menusData = [
         name: 'setTopBarText',
         type: 'obj',
         obj: { 
-          title: '当前页面'
+          text: 'hello, world!'
         },
         env: ['WEAPP'],
         methods: 'setTopBarText'
@@ -336,6 +333,7 @@ const menusData = [
   },
   {
     name: 'WXML节点信息',
+    type: 'selector',
     children: [
       {
         name: 'createSelectorQuery',

@@ -1,13 +1,13 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Text, Button } from '@tarojs/components'
-import { AtButton } from 'taro-ui'
+import { View, Text } from '@tarojs/components'
+import { AtButton, AtCard } from 'taro-ui'
 
 import './index.scss'
 
 export default class Location extends Component {
 
   config = {
-    navigationBarTitleText: '网络相关API展示页'
+    navigationBarTitleText: '位置'
   }
 
   state = {
@@ -114,6 +114,80 @@ export default class Location extends Component {
         <View className='common_header'>
           <Text className='common_title'>{componentName}</Text>
         </View>
+        <View>
+          <AtCard title='API 效果展示'>
+            <View style='word-wrap: break-word'>
+              {
+                currentIndex === 0 && locationObj.accuracy &&
+                <View>
+                  <View className='location_content'>
+                    <View className='location_content_name'>维度:</View>
+                    <View className='location_content_detail'>{locationObj.latitude}</View>
+                  </View>
+                  <View className='location_content'>
+                    <View className='location_content_name'>经度:</View>
+                    <View className='location_content_detail'>{locationObj.longitude}</View>
+                  </View>
+                  <View className='location_content'>
+                    <View className='location_content_name'>速度:</View>
+                    <View className='location_content_detail'>{locationObj.speed}</View>
+                  </View>
+                  <View className='location_content'>
+                    <View className='location_content_name'>位置的精确度:</View>
+                    <View className='location_content_detail'>{locationObj.accuracy}</View>
+                  </View>
+                  <View className='location_content'>
+                    <View className='location_content_name'>高度:</View>
+                    <View className='location_content_detail'>{locationObj.altitude}</View>
+                  </View>
+                  <View className='location_content'>
+                    <View className='location_content_name'>垂直精度:</View>
+                    <View className='location_content_detail'>{locationObj.verticalAccuracy}</View>
+                  </View>
+                  <View className='location_content'>
+                    <View className='location_content_name'>水平精度:</View>
+                    <View className='location_content_detail'>{locationObj.horizontalAccuracy}</View>
+                  </View>
+                </View>
+              }
+              {
+                currentIndex === 1 && selectObj.latitude &&
+                <View>
+                  <View className='location_content'>
+                    <View className='location_content_name'>位置名称:</View>
+                    <View className='location_content_detail'>{selectObj.name}</View>
+                  </View>
+                  <View className='location_content'>
+                    <View className='location_content_name'>详细地址:</View>
+                    <View className='location_content_detail'>{selectObj.address}</View>
+                  </View>
+                  <View className='location_content'>
+                    <View className='location_content_name'>纬度:</View>
+                    <View className='location_content_detail'>{selectObj.latitude}</View>
+                  </View>
+                  <View className='location_content'>
+                    <View className='location_content_name'>经度:</View>
+                    <View className='location_content_detail'>{selectObj.longitude}</View>
+                  </View>
+                </View>
+              }
+              {
+                currentIndex === 2 && findObj.altitude &&
+                <View>
+                  <View className='location_content'>
+                    <View className='location_content_name'>维度:</View>
+                    <View className='location_content_detail'>{findObj.latitude}</View>
+                  </View>
+                  <View className='location_content'>
+                    <View className='location_content_name'>经度:</View>
+                    <View className='location_content_detail'>{findObj.longitude}</View>
+                  </View>
+                </View>
+              }
+            </View>
+          </AtCard>
+        </View>
+        
         {
           btnList.map((item, index) => {
             return (
@@ -130,74 +204,7 @@ export default class Location extends Component {
             )
           })
         }      
-        {
-          currentIndex === 0 && locationObj.accuracy &&
-          <View>
-            <View className='location_content'>
-              <View className='location_content_name'>维度:</View>
-              <View className='location_content_detail'>{locationObj.latitude}</View>
-            </View>
-            <View className='location_content'>
-              <View className='location_content_name'>经度:</View>
-              <View className='location_content_detail'>{locationObj.longitude}</View>
-            </View>
-            <View className='location_content'>
-              <View className='location_content_name'>速度:</View>
-              <View className='location_content_detail'>{locationObj.speed}</View>
-            </View>
-            <View className='location_content'>
-              <View className='location_content_name'>位置的精确度:</View>
-              <View className='location_content_detail'>{locationObj.accuracy}</View>
-            </View>
-            <View className='location_content'>
-              <View className='location_content_name'>高度:</View>
-              <View className='location_content_detail'>{locationObj.altitude}</View>
-            </View>
-            <View className='location_content'>
-              <View className='location_content_name'>垂直精度:</View>
-              <View className='location_content_detail'>{locationObj.verticalAccuracy}</View>
-            </View>
-            <View className='location_content'>
-              <View className='location_content_name'>水平精度:</View>
-              <View className='location_content_detail'>{locationObj.horizontalAccuracy}</View>
-            </View>
-          </View>
-         
-        }
-        {
-          currentIndex === 1 && selectObj.latitude &&
-          <View>
-            <View className='location_content'>
-              <View className='location_content_name'>位置名称:</View>
-              <View className='location_content_detail'>{selectObj.name}</View>
-            </View>
-            <View className='location_content'>
-              <View className='location_content_name'>详细地址:</View>
-              <View className='location_content_detail'>{selectObj.address}</View>
-            </View>
-            <View className='location_content'>
-              <View className='location_content_name'>纬度:</View>
-              <View className='location_content_detail'>{selectObj.latitude}</View>
-            </View>
-            <View className='location_content'>
-              <View className='location_content_name'>经度:</View>
-              <View className='location_content_detail'>{selectObj.longitude}</View>
-            </View>
-          </View>
-        }
-        {
-          currentIndex === 2 && findObj.altitude &&
-          <View>
-            <View className='location_content'>
-              <View className='location_content_name'>维度:</View>
-              <View className='location_content_detail'>{findObj.latitude}</View>
-            </View>
-            <View className='location_content'>
-              <View className='location_content_name'>经度:</View>
-              <View className='location_content_detail'>{findObj.longitude}</View>
-            </View>
-          </View>
-        }
+       
 
       </View>
     )

@@ -1,7 +1,16 @@
-
-.interface, .taro_router {
+page {
   background-color: #f8f8f8;
 }
+
+body {
+  background-color: #f8f8f8;
+}
+
+.interface,
+.taro_router {
+  background-color: #f8f8f8;
+}
+
 .interface_menu {
   margin-top: 20px;
   padding: 0 40px;
@@ -24,27 +33,44 @@
         transform: rotate(-45deg);
         display: block;
         transition: all 0.3s;
-      } 
+      }
     }
     &_item {
       margin: 20px 40px 0;
     }
   }
   .animation {
-    width: 200px; 
-    height: 60px; 
-    background: red; 
-    color: #fff; 
+    width: 200px;
+    height: 60px;
+    background: red;
+    color: #fff;
     margin: 0 auto;
   }
-  .active {
+}
 
-    .menu_title {
-      color: green;
-      &_icon {
-        transform: rotate(45deg);
-        border-color: green;
-      }
+.active {
+  .menu_title {
+    color: green;
+    &_icon {
+      transform: rotate(45deg);
+      border-color: green;
+    }
+  }
+}
+
+.interface {
+  background-color: #f8f8f8;
+  &_top {
+    padding: 30px 40px;
+    font-size: 28px;
+    color: #888888;
+    text-align: center;
+  }
+  &_main {
+    padding: 0 20px;
+    margin-top: 40px;
+    &_btn {
+      margin-top: 20px;
     }
   }
 }

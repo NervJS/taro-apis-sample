@@ -1,17 +1,9 @@
 .location {
-  .oprate_btn {
-    height: 80px;
-    width: 400px;
-    margin: 20px auto 0;
-    text-align: center;
-    border-radius: 5px;
-    color: #ffffff;
-    font-size: 30px;
-    background-color: #0faeff;
-    border: none;
-  }
-  .btn_hover {
-    border: none;
+  &_wp {
+    margin: 40px 24px;
+    &_btn {
+      margin-top: 20px;
+    }
   }
   &_content {
     padding: 0 20px;
@@ -26,6 +18,8 @@
     &_detail {
       flex: 1;
     }
-
+  }
+  .oprate_btn {
+    margin: 40px 24px;
   }
 }

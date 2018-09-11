@@ -135,8 +135,7 @@ export default class Network extends Component {
         method: 'createCameraContext'
       }]
     }],
-    showDesc: '',
-    isShowResult: false
+    showDesc: ''
   }
 
   onHandleTitleClick = (meunItem) => {
@@ -153,9 +152,6 @@ export default class Network extends Component {
   }
 
   onHandleApiClick = (api) => {
-    this.setState({
-      isShowResult: true
-    })
     const env = Taro.getEnv()
     let showDesc
     showDesc = env === 'WEAPP' ? `${env}环境下支持 Taro.${api.method} API` : `${env}环境下不支持 Taro.${api.method} API`
@@ -163,7 +159,7 @@ export default class Network extends Component {
   }
 
   render() {
-    const { meun, showDesc, isShowResult } = this.state
+    const { meun, showDesc } = this.state
 
     return (
       <View className='index'>
@@ -173,11 +169,11 @@ export default class Network extends Component {
         <View className='common_header'>
           <Text className='common_title'>媒体</Text>
         </View>
-        {isShowResult && <View>
+        <View>
           <AtCard title='API效果展示'>
           {showDesc}
         </AtCard>
-        </View>}
+        </View>
         <View className='index_main'>
           {meun.map((item, idx) => {
             return <View className={item.isShowMore ? 'common_menu active' : 'common_menu'} key={idx}>
