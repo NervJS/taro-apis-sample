@@ -1,6 +1,6 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text, Button } from '@tarojs/components'
-
+import { AtButton } from 'taro-ui'
 import './index.scss'
 import menusData from './data'
 
@@ -12,7 +12,8 @@ export default class Location extends Component {
 
   state = {
     componentName: '界面',
-    currentIndex: 0
+    currentIndex: 0,
+    animationObj: ''
   }
 
   componentWillMount () { }
@@ -35,7 +36,13 @@ export default class Location extends Component {
       })
       return
     }
-    if (type === 'selector') {
+    if (type === 'animation') {
+      let animationObj = Taro[methods](obj)
+      animationObj.rotate(150).step()
+      this.setState({
+        animationObj: animationObj.export()
+      })
+    } else if (type === 'selector') {
       let query = Taro.createSelectorQuery()
       switch (methods) {
         case 'createSelectorQuery':
@@ -126,6 +133,62 @@ export default class Location extends Component {
           break     
           
       }
+    } else if (type === 'canvas') {
+      switch (methods) {
+        case 'createCanvasContext': 
+          let context = Taro[methods]('canvasTest')
+          context.setStrokeStyle("#00ff00")
+          context.setLineWidth(5)
+          context.rect(0, 0, 200, 200)
+          context.stroke()
+          context.setStrokeStyle("#ff0000")
+          context.setLineWidth(2)
+          context.moveTo(160, 100)
+          context.arc(100, 100, 60, 0, 2 * Math.PI, true)
+          context.moveTo(140, 100)
+          context.arc(100, 100, 40, 0, Math.PI, false)
+          context.moveTo(85, 80)
+          context.arc(80, 80, 5, 0, 2 * Math.PI, true)
+          context.moveTo(125, 80)
+          context.arc(120, 80, 5, 0, 2 * Math.PI, true)
+          context.stroke()
+          context.draw()
+          break
+        case 'createContext': 
+          let context2 = Taro.createContext()
+
+          context2.rect(10, 10, 150, 75)
+          context2.fill()
+          context2.stroke()
+          Taro.drawCanvas({
+            canvasId: 'canvasTest',
+            actions: context2.getActions()
+          })
+          Taro.showToast({
+            icon: 'none',
+            title: '不推荐使用'
+          })
+          break
+        case 'drawCanvas': 
+          Taro.showToast({
+            icon: 'none',
+            title: '不推荐使用'
+          })
+          let context3 = Taro.createContext()
+
+          context3.rect(10, 10, 150, 75)
+          context3.setFillStyle('red')
+          context3.fill()
+          context3.stroke()
+          Taro.drawCanvas({
+            canvasId: 'canvasTest',
+            actions: context3.getActions()
+          })
+          break
+        default : 
+          console.warn('type传值有误')
+      } 
+     
     } else if (type === 'obj') {
       Taro[methods](obj)
     } else {
@@ -141,7 +204,8 @@ export default class Location extends Component {
   render () {
     const { 
       componentName,
-      currentIndex
+      currentIndex,
+      animationObj
     } = this.state
     return (
       <View className='interface'>
@@ -164,16 +228,30 @@ export default class Location extends Component {
                     <Text className='menu_title_icon'></Text>
                   </View>
                   { 
-                    currentIndex === index && menu.children.map((item) => {
+                    currentIndex === index && menu.children.map((item, ind) => {
                       return (
-                        <Button 
+                        <View 
+                          key={ind}
                           className='menu_item' 
-                          onClick={this.handleMenuItem.bind(this, item.methods, item.type, item.env, item.obj)}
                         >
-                          {item.name}
-                        </Button>
+                          <AtButton 
+                            type='primary'
+                            onClick={this.handleMenuItem.bind(this, item.methods, item.type, item.env, item.obj)}
+                          >
+                            {item.name}
+                          </AtButton>
+                        </View>
+                       
                       )
                     })
+                  }
+                  {
+                    currentIndex === index && menu.type === 'canvas' && 
+                    <canvas style='width: 300px; height: 200px;' canvas-id='canvasTest'></canvas> 
+                  }
+                  {
+                     currentIndex === index && menu.type === 'animation' && 
+                     <View className='animation' animation={animationObj}>我在做动画</View> 
                   }
                 </View>
               )

@@ -28,6 +28,9 @@ export default class Index extends Component {
   componentDidHide () { }
 
   onGotoNetwork (url) {
+    if (url === '/pages/apis/interface/index') {
+      return Taro.switchTab({url})
+    }
     url && Taro.navigateTo({ url })
   }
 

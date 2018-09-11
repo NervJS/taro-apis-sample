@@ -26,7 +26,7 @@ const menusData = [
           title: '加载中...',    
         },
         env: ['WEB', 'WEAPP', 'RN'],
-        methods: 'showLoading'
+        methods: 'sho23wLoading'
       },
       {
         name: '隐藏 loading 提示框',
@@ -62,7 +62,8 @@ const menusData = [
         name: 'setTabBarBadge',
         type: 'obj',
         obj: {
-          title: '当前页面'  
+          index: 0,
+          text: '1323' 
         },
         env: ['WEAPP'],
         methods: 'setTabBarBadge'
@@ -99,6 +100,7 @@ const menusData = [
   },
   {
     name: '设置TabBar',
+    type: 'tabBar',
     children: [
       {
         name: 'setTabBarBadge',
@@ -252,16 +254,19 @@ const menusData = [
   },
   {
     name: '动画',
+    type: 'animation',
     children: [
       {
         name: 'createAnimation',
-        type: 'obj',
+        type: 'animation',
         obj: { 
-          icon: 'none',
-          title: '当前环境支持createAnimation'
+          transformOrigin: 'left top 0',
+          duration: 2000,
+          timingFunction: "ease",
+          delay: 0,
         },
         env: ['WEAPP'],
-        methods: 'showToast'
+        methods: 'createAnimation'
       }
     ]
   },
@@ -282,36 +287,25 @@ const menusData = [
   },
   {
     name: '绘图',
+    type: 'canvas',
     children: [
       {
         name: 'createCanvasContext',
-        type: 'obj',
-        obj: { 
-          icon: 'none',
-          title: '当前环境支持createCanvasContext'
-        },
+        type: 'canvas',
         env: ['WEAPP'],
-        methods: 'showToast'
+        methods: 'createCanvasContext'
       },
       {
         name: 'createContext',
-        type: 'obj',
-        obj: { 
-          icon: 'none',
-          title: '当前环境支持createContext'
-        },
+        type: 'canvas',
         env: ['WEAPP'],
-        methods: 'showToast'
+        methods: 'createContext'
       },
       {
         name: 'drawCanvas',
-        type: 'obj',
-        obj: { 
-          icon: 'none',
-          title: '当前环境支持drawCanvas'
-        },
+        type: 'canvas',
         env: ['WEAPP'],
-        methods: 'showToast'
+        methods: 'drawCanvas'
       }
     ]
   },

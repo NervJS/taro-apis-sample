@@ -27,18 +27,15 @@
       } 
     }
     &_item {
-      height: 80px;
-      width: 400px;
-      margin: 20px auto 0;
-      border-radius: 5px;
-      color: #ffffff;
-      font-size: 30px;
-      background-color: #0faeff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: none;   
+      margin: 20px 40px 0;
     }
+  }
+  .animation {
+    width: 200px; 
+    height: 60px; 
+    background: red; 
+    color: #fff; 
+    margin: 0 auto;
   }
   .active {
 

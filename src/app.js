@@ -23,7 +23,19 @@ class App extends Component {
       navigationBarBackgroundColor: '#fff',
       navigationBarTitleText: 'WeChat',
       navigationBarTextStyle: 'black'
-    }
+    },
+   tabBar: {
+     list: [
+       {
+        pagePath: 'pages/apis/interface/index',
+        text: '网络api'
+        },
+        {
+          pagePath:  'pages/apis/interface/index',
+          text: '日志'
+        }
+      ]
+    }  
   }
 
   componentDidMount () {
@@ -32,6 +44,7 @@ class App extends Component {
     } else if (process.env.TARO_ENV === 'h5') {
       require('taro-ui/dist/h5/css/index.css')
     }
+    // Taro.hideTabBar()
   }
 
   componentDidShow () {}

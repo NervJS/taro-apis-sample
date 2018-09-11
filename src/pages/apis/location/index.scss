@@ -13,4 +13,19 @@
   .btn_hover {
     border: none;
   }
+  &_content {
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    &_name {
+      width: 300px;
+      text-align: right;
+      margin-right: 20px;
+    }
+    &_detail {
+      flex: 1;
+    }
+
+  }
 }
