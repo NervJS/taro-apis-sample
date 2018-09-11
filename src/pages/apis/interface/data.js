@@ -26,7 +26,7 @@ const menusData = [
           title: '加载中...',    
         },
         env: ['WEB', 'WEAPP', 'RN'],
-        methods: 'sho23wLoading'
+        methods: 'showLoading'
       },
       {
         name: '隐藏 loading 提示框',
