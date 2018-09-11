@@ -191,6 +191,9 @@ export default class Location extends Component {
       currentIndex: this.state.currentIndex === index ? -1 : index
     })
   }
+  goMenu = () => {
+    Taro.navigateTo({url: '/pages/index/index'})
+  }
   render () {
     const { 
       componentName,
@@ -212,7 +215,7 @@ export default class Location extends Component {
            menusData.map((menu, index) => {
               return (
                 <View className={currentIndex === index ? 'menu active' : 'menu'} key={index}>
-                 
+                
                   <View 
                     className='menu_title' 
                     onClick={this.handleMenu.bind(this, index)}
@@ -220,6 +223,27 @@ export default class Location extends Component {
                     <Text className='menu_title_name'>{menu.name}</Text>
                     <Text className='menu_title_icon'></Text>
                   </View>
+                  {
+                    currentIndex === index && menu.type === 'selector' && 
+                    <View>
+                      <AtCard title='API 效果展示'>
+                        <View style='word-wrap: break-word'>
+                          {resultText}
+                        </View>
+                      </AtCard>
+                     </View>
+                  }
+                  {
+                    currentIndex === index && menu.type === 'canvas' && 
+                    <View>
+                      <AtCard title='API 效果展示'>
+                        <View style='word-wrap: break-word'>
+                          <canvas style='width: 300px; height: 200px;' canvas-id='canvasTest'></canvas> 
+                        </View>
+                      </AtCard>
+                   </View>
+                   
+                  }
                   { 
                     currentIndex === index && menu.children.map((item, ind) => {
                       return (
@@ -233,34 +257,25 @@ export default class Location extends Component {
                           >
                             {item.name}
                           </AtButton>
-                        </View>
-                       
+                        </View>   
                       )
                     })
-                  }
+                  }   
                   {
-                    currentIndex === index && menu.type === 'selector' && 
-                    <View>
-                      <AtCard title='API 效果展示'>
-                        <View style='word-wrap: break-word'>
-                          {resultText}
-                        </View>
-                      </AtCard>
-                     </View>
-                  }
-                  {
-                    currentIndex === index && menu.type === 'canvas' && 
-                    <canvas style='width: 300px; height: 200px;' canvas-id='canvasTest'></canvas> 
-                  }
-                  {
-                     currentIndex === index && menu.type === 'animation' && 
-                     <View className='animation' animation={animationObj}>我在做动画</View> 
+                    currentIndex === index && menu.type === 'animation' && 
+                    <View className='animation' animation={animationObj}>我在做动画</View> 
                   }
                 </View>
               )
             })
           }
         </View>
+        <View className='go_menu_btn'>
+          <AtButton type='primary' onClick={this.goMenu}>
+            返回主页
+          </AtButton>
+        </View>
+       
       </View>
     )
   }
