@@ -1,5 +1,4 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View } from '@tarojs/components'
 import '@tarojs/async-await'
 
 import Index from './pages/index'
@@ -42,7 +41,7 @@ class App extends Component {
           text: '测试'
         }
       ]
-    }  
+    }
   }
 
   componentDidMount () {
@@ -62,9 +61,7 @@ class App extends Component {
 
   render () {
     return (
-      <View>
-        <Index />
-      </View>
+      <Index />
     )
   }
 }
