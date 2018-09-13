@@ -7,7 +7,7 @@ const menusData = [
         type: 'obj',
         obj: {
           title: '成功',
-          icon: 'success'      
+          icon: 'success'
         },
         env: ['WEB', 'WEAPP', 'RN'],
         methods: 'showToast'
@@ -23,7 +23,7 @@ const menusData = [
         name: '显示 loading 提示框',
         type: 'obj',
         obj: {
-          title: '加载中...',    
+          title: '加载中...',
         },
         env: ['WEB', 'WEAPP', 'RN'],
         methods: 'showLoading'
@@ -39,16 +39,16 @@ const menusData = [
         name: '​显示模态弹窗',
         type: 'obj',
         obj: {
-          title: '​显示模态弹窗',   
+          title: '​显示模态弹窗',
         },
         env: ['WEB', 'WEAPP', 'RN'],
         methods: 'showModal'
       },
       {
         name: '显示操作菜单',
-        type: 'obj', 
+        type: 'obj',
         obj: {
-          itemList: ['a', 'b', 'c']   
+          itemList: ['a', 'b', 'c']
         },
         env: ['WEB', 'WEAPP', 'RN'],
         methods: 'showActionSheet'
@@ -62,7 +62,7 @@ const menusData = [
         name: 'setNavigationBarTitle',
         type: 'obj',
         obj: {
-          title: '更改了当前页面的标题'  
+          title: '更改了当前页面的标题'
         },
         env: ['WEAPP'],
         methods: 'setNavigationBarTitle'
@@ -172,7 +172,7 @@ const menusData = [
       {
         name: 'hideTabBar',
         type: 'obj',
-        obj: { 
+        obj: {
           animation: true
         },
         env: ['WEAPP'],
@@ -186,7 +186,7 @@ const menusData = [
       {
         name: 'setTopBarText',
         type: 'obj',
-        obj: { 
+        obj: {
           text: 'hello, world!'
         },
         env: ['WEAPP'],
@@ -200,7 +200,7 @@ const menusData = [
       {
         name: 'navigateTo',
         type: 'obj',
-        obj: { 
+        obj: {
           icon: 'none',
           title: '当前环境支持navigateTo'
         },
@@ -210,7 +210,7 @@ const menusData = [
       {
         name: 'redirectTo',
         type: 'obj',
-        obj: { 
+        obj: {
           icon: 'none',
           title: '当前环境支持redirectTo'
         },
@@ -220,7 +220,7 @@ const menusData = [
       {
         name: 'switchTab',
         type: 'obj',
-        obj: { 
+        obj: {
           icon: 'none',
           title: '当前环境支持switchTab'
         },
@@ -230,7 +230,7 @@ const menusData = [
       {
         name: 'navigateBack',
         type: 'obj',
-        obj: { 
+        obj: {
           icon: 'none',
           title: '当前环境支持navigateBack'
         },
@@ -240,7 +240,7 @@ const menusData = [
       {
         name: 'reLaunch',
         type: 'obj',
-        obj: { 
+        obj: {
           icon: 'none',
           title: '当前环境支持reLaunch'
         },
@@ -256,7 +256,7 @@ const menusData = [
       {
         name: 'createAnimation',
         type: 'animation',
-        obj: { 
+        obj: {
           transformOrigin: 'left top 0',
           duration: 2000,
           timingFunction: "ease",
@@ -273,7 +273,7 @@ const menusData = [
       {
         name: 'pageScrollTo',
         type: 'obj',
-        obj: { 
+        obj: {
           scrollTop: 0,
           duration: 300
         },
@@ -312,7 +312,7 @@ const menusData = [
       {
         name: 'startPullDownRefresh',
         type: 'obj',
-        obj: { 
+        obj: {
           icon: 'none',
           title: '当前环境支持startPullDownRefresh'
         },
@@ -322,7 +322,7 @@ const menusData = [
       {
         name: 'stopPullDownRefresh',
         type: 'obj',
-        obj: { 
+        obj: {
           icon: 'none',
           title: '当前环境支持stopPullDownRefresh'
         },
@@ -338,7 +338,7 @@ const menusData = [
       {
         name: 'createSelectorQuery',
         type: 'selector',
-        obj: { 
+        obj: {
           icon: 'none',
           title: '当前环境支持createSelectorQuery'
         },
@@ -346,71 +346,71 @@ const menusData = [
         methods: 'createSelectorQuery'
       },
       {
-        name: 'selectorQuery.in(component)',
+        name: 'selectorQuery.in',
         type: 'selector',
-        obj: { 
+        obj: {
           icon: 'none',
-          title: '当前环境支持selectorQuery.in(component)'
+          title: '当前环境支持selectorQuery.in'
         },
         env: ['WEAPP', 'WEB'],
         methods: 'in'
       },
       {
-        name: 'selectorQuery.select(selector)',
+        name: 'selectorQuery.select',
         type: 'selector',
-        obj: { 
+        obj: {
           icon: 'none',
-          title: '当前环境支持selectorQuery.selectAll(selector)'
+          title: '当前环境支持selectorQuery.selectAll'
         },
         env: ['WEAPP', 'WEB'],
         methods: 'select'
       },
       {
-        name: 'selectorQuery.selectAll(selector)',
+        name: 'selectorQuery.selectAll',
         type: 'selector',
-        obj: { 
+        obj: {
           icon: 'none',
-          title: '当前环境支持selectorQuery.selectAll(selector)'
+          title: '当前环境支持selectorQuery.selectAll'
         },
         env: ['WEAPP', 'WEB'],
         methods: 'selectAll'
       },
       {
-        name: 'selectorQuery.selectViewport()',
+        name: 'selectorQuery.selectViewport',
         type: 'selector',
-        obj: { 
+        obj: {
           icon: 'none',
-          title: '当前环境支持selectorQuery.selectViewport()'
+          title: '当前环境支持selectorQuery.selectViewport'
         },
         env: ['WEAPP', 'WEB'],
         methods: 'selectViewport'
       },
       {
-        name: 'nodesRef.boundingClientRect([callback])',
+        name: 'nodesRef.boundingClientRect',
         type: 'selector',
-        obj: { 
+        obj: {
           icon: 'none',
-          title: '当前环境支持nodesRef.boundingClientRect([callback])'
+          title: '当前环境支持nodesRef.boundingClientRect'
         },
         env: ['WEAPP', 'WEB'],
         methods: 'boundingClientRect'
       },
       {
-        name: 'nodesRef.scrollOffset([callback])',
+        name: 'nodesRef.scrollOffset',
         type: 'selector',
-        obj: { 
+        obj: {
           icon: 'none',
-          title: '当前环境支持nodesRef.scrollOffset([callback])'
+          title: '当前环境支持nodesRef.scrollOffset'
         },
         env: ['WEAPP', 'WEB'],
         methods: 'scrollOffset'
       },
       {
-        name: 'selectorQuery.exec([callback])',
+        name: 'selectorQuery.exec',
         type: 'selector',
-        obj: { 
+        obj: {
           icon: 'none',
-          title: '当前环境支持selectorQuery.exec([callback])'
+          title: '当前环境支持selectorQuery.exec'
         },
         env: ['WEAPP', 'WEB'],
         methods: 'exec'

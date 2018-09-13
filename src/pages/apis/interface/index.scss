@@ -79,5 +79,12 @@ body {
 }
 .go_menu_btn {
   position: fixed;
-  bottom: 0;
+  left: 0;
+  bottom: 50px;
+  width: 2em;
+  padding: 10px 20px;
+  border-radius: 0 10px 10px 0;
+  font-size: 24px;
+  color: #fff;
+  background-color: rgba(0,0,0,0.7);
 }

@@ -19,8 +19,8 @@ export default class Location extends Component {
 
   componentWillMount () { }
 
-  componentDidMount () { 
-   
+  componentDidMount () {
+
   }
 
   componentWillUnmount () { }
@@ -110,7 +110,7 @@ export default class Location extends Component {
               })
             })
             .exec()
-          break 
+          break
         case 'exec':
           query
             .selectViewport()
@@ -120,12 +120,12 @@ export default class Location extends Component {
               })
             })
             .exec()
-          break     
-          
+          break
+
       }
     } else if (type === 'canvas') {
       switch (methods) {
-        case 'createCanvasContext': 
+        case 'createCanvasContext':
           let context = Taro[methods]('canvasTest')
           context.setStrokeStyle("#00ff00")
           context.setLineWidth(5)
@@ -144,7 +144,7 @@ export default class Location extends Component {
           context.stroke()
           context.draw()
           break
-        case 'createContext': 
+        case 'createContext':
           let context2 = Taro.createContext()
 
           context2.rect(10, 10, 150, 75)
@@ -159,7 +159,7 @@ export default class Location extends Component {
             title: '不推荐使用'
           })
           break
-        case 'drawCanvas': 
+        case 'drawCanvas':
           Taro.showToast({
             icon: 'none',
             title: '不推荐使用'
@@ -175,16 +175,16 @@ export default class Location extends Component {
             actions: context3.getActions()
           })
           break
-        default : 
+        default :
           console.warn('type传值有误')
-      } 
-     
+      }
+
     } else if (type === 'obj') {
       Taro[methods](obj)
     } else {
       Taro[methods]()
     }
-   
+
   }
   handleMenu (index) {
     this.setState({
@@ -195,7 +195,7 @@ export default class Location extends Component {
     Taro.navigateTo({url: '/pages/index/index'})
   }
   render () {
-    const { 
+    const {
       componentName,
       currentIndex,
       animationObj,
@@ -209,22 +209,22 @@ export default class Location extends Component {
         <View className='common_header'>
           <Text className='common_title'>{componentName}</Text>
         </View>
-     
+
         <View className='interface_menu'>
           {
            menusData.map((menu, index) => {
               return (
                 <View className={currentIndex === index ? 'menu active' : 'menu'} key={index}>
-                
-                  <View 
-                    className='menu_title' 
+
+                  <View
+                    className='menu_title'
                     onClick={this.handleMenu.bind(this, index)}
                   >
                     <Text className='menu_title_name'>{menu.name}</Text>
                     <Text className='menu_title_icon'></Text>
                   </View>
                   {
-                    currentIndex === index && menu.type === 'selector' && 
+                    currentIndex === index && menu.type === 'selector' &&
                     <View>
                       <AtCard title='API 效果展示'>
                         <View style='word-wrap: break-word'>
@@ -234,48 +234,46 @@ export default class Location extends Component {
                      </View>
                   }
                   {
-                    currentIndex === index && menu.type === 'canvas' && 
+                    currentIndex === index && menu.type === 'canvas' &&
                     <View>
                       <AtCard title='API 效果展示'>
                         <View style='word-wrap: break-word'>
-                          <canvas style='width: 300px; height: 200px;' canvas-id='canvasTest'></canvas> 
+                          <canvas style='width: 300px; height: 200px;' canvas-id='canvasTest'></canvas>
                         </View>
                       </AtCard>
                    </View>
-                   
+
                   }
-                  { 
+                  {
                     currentIndex === index && menu.children.map((item, ind) => {
                       return (
-                        <View 
+                        <View
                           key={ind}
-                          className='menu_item' 
+                          className='menu_item'
                         >
-                          <AtButton 
+                          <AtButton
                             type='primary'
                             onClick={this.handleMenuItem.bind(this, item.methods, item.type, item.env, item.obj)}
                           >
                             {item.name}
                           </AtButton>
-                        </View>   
+                        </View>
                       )
                     })
-                  }   
+                  }
                   {
-                    currentIndex === index && menu.type === 'animation' && 
-                    <View className='animation' animation={animationObj}>我在做动画</View> 
+                    currentIndex === index && menu.type === 'animation' &&
+                    <View className='animation' animation={animationObj}>我在做动画</View>
                   }
                 </View>
               )
             })
           }
         </View>
-        <View className='go_menu_btn'>
-          <AtButton type='primary' onClick={this.goMenu}>
-            返回主页
-          </AtButton>
+        <View className='go_menu_btn' onClick={this.goMenu}>
+            返回首页
         </View>
-       
+
       </View>
     )
   }
