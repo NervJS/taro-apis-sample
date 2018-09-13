@@ -28,7 +28,7 @@ export default class Index extends Component {
   componentDidHide () { }
 
   onGotoNetwork (url) {
-    if (url === '/pages/apis/interface/index') {
+    if (url === '/pages/apis/interface/index' && Taro.getEnv() === 'WEAPP') {
       return Taro.switchTab({url})
     }
     url && Taro.navigateTo({ url })

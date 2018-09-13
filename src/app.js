@@ -24,15 +24,22 @@ class App extends Component {
       navigationBarTitleText: 'WeChat',
       navigationBarTextStyle: 'black'
     },
-   tabBar: {
-     list: [
-       {
-        pagePath: 'pages/apis/interface/index',
-        text: '网络api'
+    tabBar: {
+      color: '#999999',
+      selectedColor: '#173fff',
+      backgroundColor: '#ffffff',
+      list: [
+        {
+          pagePath: 'pages/apis/interface/index',
+          iconPath: 'asset/zt@2x.png',
+          selectedIconPath: 'asset/zt_active@2x.png',
+          text: '网络api'
         },
         {
           pagePath:  'pages/apis/interface/index',
-          text: '日志'
+          iconPath: 'asset/mine@2x.png',
+          selectedIconPath: 'asset/mine_active@2x.png',
+          text: '测试'
         }
       ]
     }  
