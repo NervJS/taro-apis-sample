@@ -270,7 +270,7 @@ export default class Location extends Component {
             })
           }
         </View>
-        <View className='go_menu_btn' onClick={this.goMenu}>
+        <View className={Taro.getEnv() === 'H5' ? 'go_menu_btn' : 'go_menu_btn h5'} onClick={this.goMenu}>
             返回首页
         </View>
 
