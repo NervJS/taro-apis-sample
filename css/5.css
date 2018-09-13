@@ -1,0 +1,33 @@
+.location_wp {
+  margin: 0.85333rem 0.512rem;
+}
+
+.location_wp_btn {
+  margin-top: 0.42667rem;
+}
+
+.location_content {
+  padding: 0 0.42667rem;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+          align-items: center;
+  margin-top: 0.42667rem;
+}
+
+.location_content_name {
+  width: 6.4rem;
+  text-align: right;
+  margin-right: 0.42667rem;
+}
+
+.location_content_detail {
+  -webkit-flex: 1;
+          flex: 1;
+}
+
+.location .oprate_btn {
+  margin: 0.85333rem 0.512rem;
+}
+
+

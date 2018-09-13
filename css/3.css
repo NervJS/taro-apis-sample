@@ -1,0 +1,63 @@
+page {
+  background-color: #f8f8f8;
+}
+
+body {
+  background-color: #f8f8f8;
+}
+
+.index {
+  background-color: #f8f8f8;
+}
+
+.index_top {
+  padding: 0.64rem 0.85333rem;
+  font-size: 0.59733rem;
+  color: #888888;
+  text-align: center;
+}
+
+.index_main {
+  padding: 0 0.42667rem;
+  margin-top: 0.85333rem;
+}
+
+.index_main_btn {
+  margin-top: 0.42667rem;
+}
+
+.request_text {
+  margin-top: 0.42667rem;
+  font-size: 0.68267rem;
+}
+
+.request_wp {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+
+.request_item {
+  margin-top: 0.64rem;
+  width: 50%;
+  display: -webkit-flex;
+  display: flex;
+  font-size: 0.59733rem;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+}
+
+.request_item image {
+  width: 0.85333rem;
+  height: 0.85333rem;
+}
+
+.request_item .taro-img {
+  width: 0.85333rem;
+  height: 0.85333rem;
+}
+
+

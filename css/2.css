@@ -1,0 +1,43 @@
+page {
+  background-color: #f8f8f8;
+}
+
+body {
+  background-color: #f8f8f8;
+}
+
+.index {
+  background-color: #f8f8f8;
+}
+
+.index__top {
+  padding: 1.28rem 0.85333rem;
+  font-size: 0.59733rem;
+  color: #999999;
+  text-align: center;
+}
+
+.index__main-sub {
+  margin: 0 0.64rem;
+  background-color: #fff;
+  font-size: 0.68267rem;
+  border-radius: 0.10667rem;
+  margin-bottom: 0.21333rem;
+}
+
+.index__main-sub-title {
+  display: block;
+  padding: 0 0.64rem;
+  height: 1.87733rem;
+  line-height: 1.87733rem;
+}
+
+.index__main-sub-list {
+  display: none;
+}
+
+.index__main-sub-list--unfold {
+  display: block;
+}
+
+

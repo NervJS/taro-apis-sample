@@ -1,0 +1,43 @@
+.header {
+  padding: 20PX 0 35PX;
+}
+
+.header .title {
+  position: relative;
+  display: block;
+  line-height: 44PX;
+  text-align: center;
+  font-size: 14PX;
+  color: #999;
+}
+
+.header .title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 70PX;
+  height: 0;
+  border-bottom: 0.02133rem solid #ccc;
+}
+
+
+page {
+  background-color: #f8f8f8;
+}
+
+body {
+  background-color: #f8f8f8;
+}
+
+.storage__btns {
+  margin-top: 1.06667rem;
+}
+
+.storage__btn {
+  margin: 0.42667rem 0.64rem;
+}
+
+

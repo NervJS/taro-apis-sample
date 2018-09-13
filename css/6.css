@@ -1,0 +1,111 @@
+page {
+  background-color: #f8f8f8;
+}
+
+body {
+  background-color: #f8f8f8;
+}
+
+.interface,
+.taro_router {
+  background-color: #f8f8f8;
+  padding-bottom: 2.13333rem;
+}
+
+.interface_menu {
+  margin-top: 0.42667rem;
+  padding: 0 0.85333rem;
+}
+
+.interface_menu .menu {
+  margin-bottom: 0.42667rem;
+}
+
+.interface_menu .menu_title {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  -webkit-align-items: center;
+          align-items: center;
+  background-color: #fff;
+  padding: 0.42667rem;
+  font-size: 0.59733rem;
+}
+
+.interface_menu .menu_title_name {
+  font-size: 0.59733rem;
+}
+
+.interface_menu .menu_title_icon {
+  width: 0.64rem;
+  height: 0.64rem;
+  border-right: 0.04267rem solid #676767;
+  border-bottom: 0.04267rem solid #676767;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  display: block;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  font-size: 0.59733rem;
+}
+
+.interface_menu .menu_item {
+  margin: 0.42667rem 0.85333rem 0;
+}
+
+.interface_menu .animation {
+  width: 4.26667rem;
+  height: 1.28rem;
+  background: red;
+  color: #fff;
+  margin: 0 auto;
+}
+
+.active .menu_title {
+  color: green;
+}
+
+.active .menu_title_icon {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  border-color: green;
+}
+
+.interface {
+  background-color: #f8f8f8;
+}
+
+.interface_top {
+  padding: 0.64rem 0.85333rem;
+  font-size: 0.59733rem;
+  color: #888888;
+  text-align: center;
+}
+
+.interface_main {
+  padding: 0 0.42667rem;
+  margin-top: 0.85333rem;
+}
+
+.interface_main_btn {
+  margin-top: 0.42667rem;
+}
+
+.go_menu_btn {
+  position: fixed;
+  left: 0;
+  bottom: 1.06667rem;
+  width: 2em;
+  padding: 0.21333rem 0.42667rem;
+  border-radius: 0 0.21333rem 0.21333rem 0;
+  font-size: 0.512rem;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.go_menu_btn.h5 {
+  bottom: 3.2rem;
+}
+
+
