@@ -42,12 +42,27 @@ body {
       margin: 20px 40px 0;
     }
   }
+  .animation_oprate {
+    display: flex;
+    margin-top: 10px;
+    flex-wrap: wrap;
+    &_btn {
+      margin-right: 10px;
+    }
+  }
   .animation {
-    width: 200px;
-    height: 60px;
-    background: red;
-    color: #fff;
-    margin: 0 auto;
+    height: 400px;
+    display:flex;
+    align-items:center;
+    &_content {
+      width: 200px;
+      height: 60px;
+      background: red;
+      color: #fff;
+      margin: 0 auto;
+      text-align: center;
+      line-height: 60px;
+    }
   }
 }
 

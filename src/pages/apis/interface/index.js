@@ -14,7 +14,35 @@ export default class Location extends Component {
     componentName: '界面',
     currentIndex: 0,
     animationObj: '',
-    resultText: ''
+    resultText: '',
+    animationObj: {
+      transformOrigin: 'left top 0',
+      duration: 2000,
+      timingFunction: 'linear',
+      delay: 100,
+    },
+    animationOprate: [
+      {
+        name: '旋转',
+        type: 'rotate'
+      },
+      {
+        name: '缩放',
+        type: 'scale'
+      },
+      {
+        name: '移动',
+        type: 'translate'
+      },
+      {
+        name: '展示全部',
+        type: 'all'
+      },
+      {
+        name: '还原',
+        type: 'reset'
+      }
+    ]
   }
 
   componentWillMount () { }
@@ -42,11 +70,7 @@ export default class Location extends Component {
       return
     }
     if (type === 'animation') {
-      let animationObj = Taro[methods](obj)
-      animationObj.rotate(150).step()
-      this.setState({
-        animationObj: animationObj.export()
-      })
+      this.handleAnimation('scale')
     } else if (type === 'selector') {
       let query = Taro.createSelectorQuery()
       switch (methods) {
@@ -194,12 +218,58 @@ export default class Location extends Component {
   goMenu = () => {
     Taro.navigateTo({url: '/pages/index/index'})
   }
+  handleAnimation = (type='reset') => {
+    const nowEnv = Taro.getEnv()
+    if (nowEnv !== 'WEAPP') {
+      Taro.showToast({
+        icon: 'none',
+        title: `该api暂不支持${nowEnv}环境`
+      })
+      this.setState({
+        resultText: ` 该 api 暂不支持 ${nowEnv} 环境 `
+      })
+      return
+    }
+    let animationObj = Taro.createAnimation(this.state.animationObj)
+    switch (type) {
+      case 'rotate':
+        animationObj.rotate(Math.random() * 720 - 360).step()
+        break
+      case 'scale':
+        animationObj.scale(Math.random() * 2).step()
+        break 
+      case 'translate':
+        animationObj.translate(Math.random() * 100 - 50, Math.random() * 100 - 50).step()
+        break 
+      case 'all':
+        animationObj.rotate(Math.random() * 720 - 360).step()
+          .scale(Math.random() * 2).step()
+          .translate(Math.random() * 100 - 50, Math.random() * 100 - 50).step()
+          .skew(Math.random() * 90, Math.random() * 90).step()
+        break 
+      case 'reset':
+        animationObj.rotate(0, 0)
+          .scale(1)
+          .translate(0, 0)
+          .skew(0, 0)
+          .step({ duration: 0 })
+        break 
+      default: 
+        console.warn('暂无该操作')    
+    }
+ 
+    
+    this.setState({
+      animationObj: animationObj.export()
+    })
+  }
   render () {
     const {
       componentName,
       currentIndex,
       animationObj,
-      resultText
+      resultText,
+      animationOprate
     } = this.state
     return (
       <View className='interface'>
@@ -245,6 +315,16 @@ export default class Location extends Component {
 
                   }
                   {
+                    currentIndex === index && menu.type === 'animation' &&
+                    <View>
+                      <AtCard title='API 效果展示'>
+                        <View className='animation'> 
+                          <View className='animation_content' animation={animationObj}>看我表演~</View>
+                        </View>
+                      </AtCard>
+                    </View>         
+                  }
+                  {
                     currentIndex === index && menu.children.map((item, ind) => {
                       return (
                         <View
@@ -257,14 +337,31 @@ export default class Location extends Component {
                           >
                             {item.name}
                           </AtButton>
+                          {
+                            item.type === 'animation' &&
+                            <View className='animation_oprate'>
+                              {
+                                animationOprate.map((oprate, oprateIndex) => {
+                                  return (
+                                    <View key={oprateIndex} className='animation_oprate_btn'>
+                                      <AtButton                       
+                                        type='secondary' 
+                                        size='small'
+                                        onClick={this.handleAnimation.bind(this, oprate.type)}
+                                      >
+                                        {oprate.name}
+                                      </AtButton>
+                                    </View>
+                                  )
+                                })
+                              }
+                            </View>                       
+                          } 
                         </View>
                       )
                     })
                   }
-                  {
-                    currentIndex === index && menu.type === 'animation' &&
-                    <View className='animation' animation={animationObj}>我在做动画</View>
-                  }
+                
                 </View>
               )
             })

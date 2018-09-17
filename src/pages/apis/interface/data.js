@@ -254,7 +254,7 @@ const menusData = [
     type: 'animation',
     children: [
       {
-        name: 'createAnimation',
+        name: 'api: createAnimation',
         type: 'animation',
         obj: {
           transformOrigin: 'left top 0',
