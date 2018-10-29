@@ -237,28 +237,28 @@ export default class Location extends Component {
         break
       case 'scale':
         animationObj.scale(Math.random() * 2).step()
-        break 
+        break
       case 'translate':
         animationObj.translate(Math.random() * 100 - 50, Math.random() * 100 - 50).step()
-        break 
+        break
       case 'all':
         animationObj.rotate(Math.random() * 720 - 360).step()
           .scale(Math.random() * 2).step()
           .translate(Math.random() * 100 - 50, Math.random() * 100 - 50).step()
           .skew(Math.random() * 90, Math.random() * 90).step()
-        break 
+        break
       case 'reset':
         animationObj.rotate(0, 0)
           .scale(1)
           .translate(0, 0)
           .skew(0, 0)
           .step({ duration: 0 })
-        break 
-      default: 
-        console.warn('暂无该操作')    
+        break
+      default:
+        console.warn('暂无该操作')
     }
- 
-    
+
+
     this.setState({
       animationObj: animationObj.export()
     })
@@ -318,11 +318,11 @@ export default class Location extends Component {
                     currentIndex === index && menu.type === 'animation' &&
                     <View>
                       <AtCard title='API 效果展示'>
-                        <View className='animation'> 
+                        <View className='animation'>
                           <View className='animation_content' animation={animationObj}>看我表演~</View>
                         </View>
                       </AtCard>
-                    </View>         
+                    </View>
                   }
                   {
                     currentIndex === index && menu.children.map((item, ind) => {
@@ -344,8 +344,8 @@ export default class Location extends Component {
                                 animationOprate.map((oprate, oprateIndex) => {
                                   return (
                                     <View key={oprateIndex} className='animation_oprate_btn'>
-                                      <AtButton                       
-                                        type='secondary' 
+                                      <AtButton
+                                        type='secondary'
                                         size='small'
                                         onClick={this.handleAnimation.bind(this, oprate.type)}
                                       >
@@ -355,13 +355,13 @@ export default class Location extends Component {
                                   )
                                 })
                               }
-                            </View>                       
-                          } 
+                            </View>
+                          }
                         </View>
                       )
                     })
                   }
-                
+
                 </View>
               )
             })

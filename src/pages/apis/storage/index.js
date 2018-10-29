@@ -14,12 +14,12 @@ export default class Storage extends Component {
         name: '存储数据',
         style: 'primary',
         type: 'setStorage'
-      }, 
+      },
       {
         name: '读取数据',
         style: 'primary',
         type: 'getStorage'
-      }, 
+      },
       {
         name: '移除指定数据',
         style: 'secondary',

@@ -9,14 +9,14 @@ const menusData = [
           title: '成功',
           icon: 'success'
         },
-        env: ['WEB', 'WEAPP', 'RN'],
+        env: ['WEB', 'WEAPP', 'RN', 'ALIPAY'],
         methods: 'showToast'
       },
       {
         name: '隐藏消息提示框',
         type: '',
         obj: {},
-        env: ['WEB', 'WEAPP', 'RN'],
+        env: ['WEB', 'WEAPP', 'RN', 'ALIPAY'],
         methods: 'hideToast'
       },
       {
@@ -25,14 +25,14 @@ const menusData = [
         obj: {
           title: '加载中...',
         },
-        env: ['WEB', 'WEAPP', 'RN'],
+        env: ['WEB', 'WEAPP', 'RN', 'ALIPAY'],
         methods: 'showLoading'
       },
       {
         name: '隐藏 loading 提示框',
         type: '',
         obj: {},
-        env: ['WEB', 'WEAPP', 'RN'],
+        env: ['WEB', 'WEAPP', 'RN', 'ALIPAY'],
         methods: 'hideLoading'
       },
       {
@@ -41,7 +41,7 @@ const menusData = [
         obj: {
           title: '​显示模态弹窗',
         },
-        env: ['WEB', 'WEAPP', 'RN'],
+        env: ['WEB', 'WEAPP', 'RN', 'ALIPAY'],
         methods: 'showModal'
       },
       {
@@ -50,7 +50,7 @@ const menusData = [
         obj: {
           itemList: ['a', 'b', 'c']
         },
-        env: ['WEB', 'WEAPP', 'RN'],
+        env: ['WEB', 'WEAPP', 'RN', 'ALIPAY'],
         methods: 'showActionSheet'
       }
     ]
