@@ -54,7 +54,7 @@ export default class Index extends Component {
                 <Text className='index__main-sub-title' onClick={this.onToggleSubMenu.bind(this, index)} >{item.name}</Text>
                 {item.subList && (
                   <View className={classNames('index__main-sub-list', { 'index__main-sub-list--unfold': item.isUnfold })}>
-                    {item.subList.map(page =>
+                    {item.subList.map((page, i) =>
                       <AtListItem
                         title={page.name}
                         arrow='right'

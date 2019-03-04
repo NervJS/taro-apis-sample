@@ -1,5 +1,5 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
+import { View, Text, Canvas } from '@tarojs/components'
 import { AtButton, AtCard } from 'taro-ui'
 import './index.scss'
 import menusData from './data'
@@ -308,7 +308,7 @@ export default class Location extends Component {
                     <View>
                       <AtCard title='API 效果展示'>
                         <View style='word-wrap: break-word'>
-                          <canvas style='width: 300px; height: 200px;' canvas-id='canvasTest'></canvas>
+                          <Canvas style='width: 300px; height: 200px;' canvas-id='canvasTest'></Canvas>
                         </View>
                       </AtCard>
                    </View>
